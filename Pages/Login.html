@@ -1,12 +1,41 @@
 <html>
 	<head>
+		  <style type="text/css">
+		  		.center {
+  					margin: auto;
+  					width: 50%;
+ 					border: 3px solid green;
+  					padding: 10px;
+  					text-align: center;
+						}
+						.textbox
+						{
+							padding: 5;
+							width: 50%
+						}
+		  </style>
+
 	</head>
+
 	<body>
-		<div>
+		<div class="center" style="padding: 10px;background-color:aqua	 ">
+			<h1>WeSell4You</h1>
+		</div>
+		<div class="center">
 		<form method="POST" action="url" enctype="application/json">
-			Email Id : <input type="text" name="emailId">
-			Password : <input type="Password" name="password">
-			<button>Log In</button>
+			<div class="textbox">
+				Email Id : <input type="text" name="emailId"><br>
+			</div>
+			<div class="textbox">
+				Password : <input type="Password" name="password" ><br>
+			</div>
+			<div>
+			<button style="padding-right: 10;padding: 10">Log In</button>
+				<button style="padding: 10">Forgot Password?</button><br>
+			</div>
+			<div style="padding-top: 5">
+			<button style="padding: 10">Sign Up</button>
+		</div>
 		</form>
 	</div>
 	</body>
