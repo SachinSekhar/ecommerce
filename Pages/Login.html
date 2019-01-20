@@ -1,5 +1,5 @@
 <html>
-	<head>
+	<head >
 		  <style type="text/css">
 		  		.center {
   					margin: auto;
@@ -13,28 +13,39 @@
 							padding: 5;
 							width: 50%
 						}
+						.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: yellow;
+  color: #333333;
+  padding: 5px 10px 5px 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
 		  </style>
-
+<!-- 		  <div class="center" style="padding: 10px;background-color:aqua	 ">
+ -->			<h1 style="text-align:center;padding: 10; background-color:aqua">WeSell4You</h1>
+		<!-- </div> -->
 	</head>
 
 	<body>
-		<div class="center" style="padding: 10px;background-color:aqua	 ">
-			<h1>WeSell4You</h1>
-		</div>
+		
 		<div class="center">
 		<form method="POST" action="url" enctype="application/json">
 			<div class="textbox">
-				Email Id : <input type="text" name="emailId"><br>
+				Email Id : <input type="Email" name="emailId"><br>
 			</div>
 			<div class="textbox">
 				Password : <input type="Password" name="password" ><br>
 			</div>
 			<div>
-			<button style="padding-right: 10;padding: 10">Log In</button>
-				<button style="padding: 10">Forgot Password?</button><br>
+		
 			</div>
-			<div style="padding-top: 5">
-			<button style="padding: 10">Sign Up</button>
+			<a href="Signup.html" class="button"> Sign In</a>
+			<a href="Signup.html" class="button"> Forgot Password?</a>
+			<a href="Signup.html" class="button"> Sign Up</a>
 		</div>
 		</form>
 	</div>
