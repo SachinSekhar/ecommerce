@@ -4,44 +4,54 @@
 		  		.center {
   					margin: auto;
   					width: 50%;
- 					border: 3px solid green;
   					padding: 10px;
   					text-align: center;
 						}
 						.textbox
 						{
+							color:white;
+							background: transparent;
 							padding: 5;
 							width: 50%
 						}
 						.button {
-  font: bold 11px Arial;
-  text-decoration: none;
-  background-color: yellow;
-  color: #333333;
-  padding: 5px 10px 5px 10px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
+  								padding: 5; 
+  								background-color:teal;
+  								color:white;border-top: 1px solid #CCCCCC;
+  								border-right: 1px solid #333333;
+  								border-bottom: 1px solid #333333;
+  								border-left: 1px solid #CCCCCC; 
+  								font: bold 11px Arial;
+								text-decoration: none;
 }
 		  </style>
 <!-- 		  <div class="center" style="padding: 10px;background-color:aqua	 ">
- -->			<h1 style="text-align:center;padding: 10; background-color:aqua">WeSell4You</h1>
+ -->			<h1 style="text-align:center;padding: 10; color: white">Dukaan.com</h1>
 		<!-- </div> -->
 	</head>
 
-	<body>
+	<body background="/Users/sachinsekhar/Documents/background.png">
 		
 		<div class="center">
 		<form method="POST" action="url" enctype="application/json">
 			<div class="textbox">
-				Email Id : <input type="Email" name="emailId"><br>
+
+
+				Email Id :  <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
+
+
 			</div>
-			<div class="textbox">
-				Password : <input type="Password" name="password" ><br><br>
+			<div class="textbox" style="color:white">
+
+
+				Password : <input type="Password" name="password" required style="background: transparent;"><br><br>
+
+
 			</div>
 			<div>
-		    <a href="Signup.html" class="button"> Sign In</a>
+
+				<button class="button">Login</button>
+		    
 			<a href="forgotPassword.html" class="button"> Forgot Password?</a><br><br>
 			<a href="Signup.html" class="button"> Sign Up</a>
 			</div>
