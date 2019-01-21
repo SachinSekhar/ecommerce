@@ -74,25 +74,11 @@
   <script src="../JS/helper.js"></script>
 
 </head>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 	<body style="background-color: black;color:white">
 		<div class="center">
 		<form style="color:white" id="searchForm">
 			<div class="flex-container">Search  :	<input type="text" style="background: transparent;color:white" name="query" class="fill-width"> <button id="searchButton" class="button"> GO</button>
-=======
-	<body background="../background.png">
-		<div class="center">
-		<form style="color:white" id="searchForm">
-			<div class="flex-container">Search  :	<input type="text" style="background: transparent;" name="query" class="fill-width"> <button class="button"> GO</button>
->>>>>>> fad08bdd592c2e0fa22c2f60f5afb36f0f293ebd
-=======
-	<body style="background-color: black;color:white">
-		<div class="center">
-		<form style="color:white" id="searchForm">
-			<div class="flex-container">Search  :	<input type="text" style="background: transparent;color:white" name="query" class="fill-width"> <button id="searchButton" class="button"> GO</button>
->>>>>>> e1182dea63cf8ad385453b22295a22da20dc8d1d
+	
 			</div>
 		</form>
 	</div>
@@ -100,9 +86,6 @@
 		
 	</div>
 		<script type="text/javascript">
-<<<<<<< HEAD
-=======
-
 		$('#searchForm').submit(function (e) {
 			var formObj=$(this);
 			var data=parseJQueryForm(formObj);
@@ -138,49 +121,6 @@
 
     document.getElementById('lowerHalf').appendChild(div);
 }
-
-	</script>
-
-
-	
->>>>>>> fad08bdd592c2e0fa22c2f60f5afb36f0f293ebd
-
-		$('#searchForm').submit(function (e) {
-			var formObj=$(this);
-			var data=parseJQueryForm(formObj);
-            var url="http://10.177.7.88:8000/search?query="+data['query']+"&category=all";
-			fetchFromGetEndpoint(url,function(res){
-	            console.log(res);
-	           for(index in res)
-	           	createProductCard(res[index]);
-
-	    	})
-	    	 // AJAX Get Jquery statment
-	    	 e.preventDefault();
-        });
-
-        function createProductCard(objectProduct){
-        	$(document).ready(function(){
-  $("button").click(function(){
-    $(".searchResult").remove();
-  });
-});
-    var div = document.createElement('div');
-
-    div.className = 'searchResult';
-
-    div.innerHTML =	`<img src="../Assets/iphone/iphone X.jpeg" alt="nahi aya" width=100%> <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
-    	Best Price: `+objectProduct.bestPrice+`<br>
-    	Rating: `+objectProduct.rating+`/5 
-    `
-        // '<input type="text" name="name" value="'" />\
-        // <input type="text" name="value" value="" />\
-        // <label> <input type="checkbox" name="check" value="1" /> Checked? </label>\
-        // <input type="button" value="-" onclick="removeRow(this)">';
-
-    document.getElementById('lowerHalf').appendChild(div);
-}
-
 	</script>
 </body>
 </html>

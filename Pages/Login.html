@@ -34,16 +34,7 @@ button,a {
   background: rgba( 22, 230, 137, 1 );
   color: #fff;
   box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
-  
-  -webkit-transform: translateZ(0);
-     -moz-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-          transform: translateZ(0);
-  
-  -webkit-transition: all 0.2s ease;
-     -moz-transition: all 0.2s ease;
-      -ms-transition: all 0.2s ease;
-          transition: all 0.2s ease;
+ 
 }
 
 button:hover,a:hover {
@@ -85,9 +76,7 @@ button:active,a.active {
 								text-decoration: none;
 }
 		  </style>
-<!-- 		  <div class="center" style="padding: 10px;background-color:aqua	 ">
- -->			<h1 style="text-align:center;padding: 10; color: white">Dukaan.com</h1>
-		<!-- </div> -->
+ 			<h1 style="text-align:center;padding: 10; color: white; font-family: fantasy;">Dukaan.com</h1>
 			<script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -95,38 +84,13 @@ button:active,a.active {
   <script src="../JS/helper.js"></script>
 	</head>
 
-<<<<<<< HEAD
-	<body background="../background.png">
-		<!-- <body> -->
-		
-		<div class="center">
+    <body style="background-color: black;color: white">
+		<div class="center" style="border:2px solid white">
 		<form method="POST" action="http://172.16.20.87:8080/auth/login" enctype="application/json" id="loginForm">
-			<div>EMAIL ID :  <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
+			<div style="margin:10px">EMAIL ID  :   <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
 </div>
-&nbsp;
 	<div>			PASSWORD : <input type="Password" name="password" required style="background: transparent;"><br><br>
-=======
-	<body style="background-color: black;color:white">
-		
-		<div class="center">
-		<form method="POST" action="..:8080/auth/login" enctype="application/json">
-			<div class="textbox">
-
-
-				Email Id :  <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
-
-
-			</div>
-			<div class="textbox" style="color:white">
-
-
-				Password : <input type="Password" name="password" required style="background: transparent;"><br><br>
-
->>>>>>> e1182dea63cf8ad385453b22295a22da20dc8d1d
-
-</div>
-			</div>
-			<div>
+	
 
 				<button>Login</button>
 		    
