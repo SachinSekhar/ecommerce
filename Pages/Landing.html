@@ -2,16 +2,7 @@
 <html>
 <head>
 	<style type="text/css">
-		.button {
-  padding: 5; 
-  background-color:teal;
-  color:white;border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC; font: bold 11px Arial;
-  text-decoration: none;
-}
-.searchResult{
+		.searchResult{
 	width : 23%;
 	border: 1px solid white;
 	height: 20%;
@@ -24,64 +15,110 @@
 	align-items: center;
 	border-radius: 7px;
 }
-.bodyImages{
-	width: 23%;
-    border: 1px solid black;
-    padding: 5px;
-    display: inline-block;
-    height: 300px;
-    margin: 5px;
-    background:transparent;
-    color:white;
-    text-align:center; 
-}
-.flex-container {
-  display: flex;
-}
-
-.textbox
-						{
-							color:white;
-							background: transparent;
-							padding: 5;
-							width: 50%
-						}
-						.button {
-  								padding: 5; 
-  								background-color:teal;
-  								color:white;border-top: 1px solid #CCCCCC;
-  								border-right: 1px solid #333333;
-  								border-bottom: 1px solid #333333;
-  								border-left: 1px solid #CCCCCC; 
-  								font: bold 11px Arial;
-								text-decoration: none;
-							}
-							.center {
-  					margin: auto;
-  					width: 50%;
-  					padding: 10px;
-  					text-align: center;
-						}
-						.fill-width {
-  flex: 1;
-}
 	</style>
-				<h1 style="text-align:center;padding: 10;color: white">Dukaan.com</h1>
-				<script
+
+<title>Ecommerece Project</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  		  <meta charset="utf-8">
+			<title>Ecommerce project</title>
+			<link rel="stylesheet" type="text/css" href="../CSS/landing.css">
+			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
+			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
+			<!-- nouislider -->
+			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css"/>
+			<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+			<script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="../JS/helper.js"></script>
 
 </head>
-	<body style="background-color: black;color:white">
-		<div class="center">
-		<form style="color:white" id="searchForm">
-			<div class="flex-container">Search  :	<input type="text" style="background: transparent;color:white" name="query" class="fill-width"> <button id="searchButton" class="button"> GO</button>
-	
-			</div>
-		</form>
-	</div>
+		<header>
+				<!-- TOP HEADER -->
+				<div id="top-header">
+					<div class="container">
+						<ul class="header-links pull-right">
+							<li><a href="Landing.html"><h1>DUKAAN.COM</h1></a></li>
+							<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
+							<li><a href="Signup.html" style="font-size: 20px;font-weight:bold">Signup</a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="header">
+					<!-- container -->
+					<div class="container">
+						<!-- row -->
+						<div class="row">
+							<!-- LOGO -->
+							<!-- <div class="col-md-2">
+								<div class="header-logo">
+									<a href="#" class="logo">
+										<img src="./img/logo.png" alt="">
+									</a>
+								</div>
+							</div> -->
+							<!-- /LOGO -->
+
+							<!-- SEARCH BAR -->
+							<div class="col-md-9">
+								<div class="header-search">
+									<form id="searchForm">
+										
+										<input type="text" class="input" placeholder="Search here" name="query">
+										<button class="search-btn button" id="searchButton">Search</button>
+									</form>
+								</div>
+							</div>
+							<!-- /SEARCH BAR -->
+
+							<!-- ACCOUNT -->
+							<div class="col-md-3 clearfix">
+								<div class="header-ctn">
+									<!-- Wishlist -->
+									<div>
+										<a href="#">
+											<i class="fa fa-heart-o"></i>
+											<span>Your Wishlist</span>
+											<!-- <div class="qty">2</div> -->
+										</a>
+									</div>
+									<!-- /Wishlist -->
+
+									<!-- Cart -->
+									<div class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+											<i class="fa fa-shopping-cart"></i>
+											<span><a href="cart.html">Your Cart</a></span>
+											<!-- <div class="qty">3</div> -->
+										</a>
+									</div>
+									<!-- /Cart -->
+
+									<!-- Menu Toogle -->
+									<div class="menu-toggle">
+										<a href="#">
+											<i class="fa fa-bars"></i>
+											<span>Menu</span>
+										</a>
+									</div>
+									<!-- /Menu Toogle -->
+								</div>
+							</div>
+							<!-- /ACCOUNT -->
+						</div>
+						<!-- row -->
+					</div>
+					<!-- container -->
+				</div>
+				<!-- /MAIN HEADER -->
+			</header>
+			<!-- /HEADER -->
 	<div id="lowerHalf">
 		
 	</div>
@@ -89,12 +126,14 @@
 		$('#searchForm').submit(function (e) {
 			var formObj=$(this);
 			var data=parseJQueryForm(formObj);
-            var url="http://10.177.7.88:8000/search?query="+data['query']+"&category=all";
+           var url="http://10.177.7.88:7000/search/all/"+data['query'];
+           	           	// debugger
+
 			fetchFromGetEndpoint(url,function(res){
 	            console.log(res);
-	           for(index in res)
+	           for(index in res){
 	           	createProductCard(res[index]);
-
+	           }
 	    	})
 	    	 // AJAX Get Jquery statment
 	    	 e.preventDefault();
@@ -110,7 +149,7 @@
 
     div.className = 'searchResult';
 
-    div.innerHTML =	`<img src="../Assets/iphone/iphone X.jpeg" alt="nahi aya" width=100%> <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
+    div.innerHTML =	`<img src="`+objectProduct.imgURL+`" alt="nahi aya" width=100%> <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
     	Best Price: `+objectProduct.bestPrice+`<br>
     	Rating: `+objectProduct.rating+`/5 
     `
