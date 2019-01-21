@@ -11,6 +11,19 @@
   border-left: 1px solid #CCCCCC; font: bold 11px Arial;
   text-decoration: none;
 }
+.searchResult{
+	width : 23%;
+	border: 1px solid white;
+	height: 20%;
+	color:black;
+	display: inline-block;
+	padding:1em;
+	margin : 10px;
+	background-color: white;
+	box-sizing: border-box;
+	align-items: center;
+	border-radius: 7px;
+}
 .bodyImages{
 	width: 23%;
     border: 1px solid black;
@@ -62,10 +75,10 @@
 
 </head>
 
-	<body background="../background.png">
+	<body style="background-color: black;color:white">
 		<div class="center">
 		<form style="color:white" id="searchForm">
-			<div class="flex-container">Search  :	<input type="text" style="background: transparent;" name="query" class="fill-width"> <button class="button"> GO</button>
+			<div class="flex-container">Search  :	<input type="text" style="background: transparent;color:white" name="query" class="fill-width"> <button id="searchButton" class="button"> GO</button>
 			</div>
 		</form>
 	</div>
@@ -89,14 +102,17 @@
         });
 
         function createProductCard(objectProduct){
+        	$(document).ready(function(){
+  $("button").click(function(){
+    $(".searchResult").remove();
+  });
+});
     var div = document.createElement('div');
 
     div.className = 'searchResult';
 
-    div.innerHTML =	`
-    	Product Name : `+objectProduct.productName+`
-    	<img src="`+objectProduct+`" alt="nahi aya">
-    	Best Price: `+objectProduct.bestPrice+`
+    div.innerHTML =	`<img src="../Assets/iphone/iphone X.jpeg" alt="nahi aya" width=100%> <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
+    	Best Price: `+objectProduct.bestPrice+`<br>
     	Rating: `+objectProduct.rating+`/5 
     `
         // '<input type="text" name="name" value="'" />\
