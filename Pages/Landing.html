@@ -127,8 +127,6 @@
 			var formObj=$(this);
 			var data=parseJQueryForm(formObj);
            var url="http://10.177.7.88:7000/search/all/"+data['query'];
-           	           	// debugger
-
 			fetchFromGetEndpoint(url,function(res){
 	            console.log(res);
 	           for(index in res){
