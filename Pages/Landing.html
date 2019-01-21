@@ -76,6 +76,7 @@
 </head>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<body style="background-color: black;color:white">
 		<div class="center">
 		<form style="color:white" id="searchForm">
@@ -86,6 +87,12 @@
 		<form style="color:white" id="searchForm">
 			<div class="flex-container">Search  :	<input type="text" style="background: transparent;" name="query" class="fill-width"> <button class="button"> GO</button>
 >>>>>>> fad08bdd592c2e0fa22c2f60f5afb36f0f293ebd
+=======
+	<body style="background-color: black;color:white">
+		<div class="center">
+		<form style="color:white" id="searchForm">
+			<div class="flex-container">Search  :	<input type="text" style="background: transparent;color:white" name="query" class="fill-width"> <button id="searchButton" class="button"> GO</button>
+>>>>>>> e1182dea63cf8ad385453b22295a22da20dc8d1d
 			</div>
 		</form>
 	</div>
@@ -111,14 +118,17 @@
         });
 
         function createProductCard(objectProduct){
+        	$(document).ready(function(){
+  $("button").click(function(){
+    $(".searchResult").remove();
+  });
+});
     var div = document.createElement('div');
 
     div.className = 'searchResult';
 
-    div.innerHTML =	`
-    	Product Name : `+objectProduct.productName+`
-    	<img src="`+objectProduct+`" alt="nahi aya">
-    	Best Price: `+objectProduct.bestPrice+`
+    div.innerHTML =	`<img src="../Assets/iphone/iphone X.jpeg" alt="nahi aya" width=100%> <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
+    	Best Price: `+objectProduct.bestPrice+`<br>
     	Rating: `+objectProduct.rating+`/5 
     `
         // '<input type="text" name="name" value="'" />\
