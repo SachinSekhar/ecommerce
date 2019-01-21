@@ -20,10 +20,17 @@
 		
 	</style>
 	<script
+<<<<<<< HEAD
  src="https://code.jquery.com/jquery-3.3.1.min.js"
  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
  crossorigin="anonymous"></script>
  <script src="../JS/helper.js"></script>
+=======
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="../JS/helper.js"></script>
+>>>>>>> fad08bdd592c2e0fa22c2f60f5afb36f0f293ebd
 		</head>
 	<body style="background-color: black;color:white">
 		<h1 style="text-align:center;padding: 10; color: white">Dukaan.com</h1>
@@ -56,6 +63,7 @@
 			var url="http://10.177.7.88:8080/auth/register";
 			var formObj=$(this);
 			var data=parseJQueryForm(formObj);
+<<<<<<< HEAD
       submitPostForm(url,data,function(res){
 	      console.log(res);
 	      if(res.status==("SUCCESS"))
@@ -67,6 +75,19 @@
 	  	 // AJAX Get Jquery statment
 	  	 e.preventDefault();
     });
+=======
+            submitPostForm(url,data,function(res){
+	            console.log(res);
+	            if(res.status==("SUCCESS"))
+	            	window.location.replace('../Pages/Login.html');
+	            else
+	            	alert(res.message);
+
+	    	})
+	    	 // AJAX Get Jquery statment
+	    	 e.preventDefault();
+        });
+>>>>>>> fad08bdd592c2e0fa22c2f60f5afb36f0f293ebd
 	</script>
 </body>
 </html>
