@@ -16,10 +16,6 @@
 	border-radius: 7px;
 }
 	</style>
-<<<<<<< HEAD
-	<div style="background-color: black; width: auto;" >
-=======
-<<<<<<< HEAD
 
 <title>Ecommerece Project</title>
 	  <meta charset="utf-8">
@@ -37,29 +33,12 @@
 			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css"/>
 			<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
 			<script
-=======
-	<div style="background-color: black">
->>>>>>> f0d6195b994c24ad67de4bdc7696d6ec54717f1b
-	<div style="display: inline-block; align-items: center;width: 95%;">
-				<h1 style="text-align:center;padding: 10;color: white; ">Dukaan.com</h1>
-				</div>
-	<div style="display: inline-block; ">
-				<a href="Cart.html">
-				<img src="../download.png" style="height: 50px; width: 50px">
-			</a>
-			</div>
-		</div>
-		
-			
-				<script
->>>>>>> 6fa6b8378cd740c7a159e256556b32d26b5e3019
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="../JS/helper.js"></script>
 
 </head>
-<<<<<<< HEAD
 		<header>
 				<!-- TOP HEADER -->
 				<div id="top-header">
@@ -140,16 +119,6 @@
 				<!-- /MAIN HEADER -->
 			</header>
 			<!-- /HEADER -->
-=======
-	<body style="background-color: red;color:white">
-		<div class="center">
-		<form style="color:white" id="searchForm">
-			<div class="flex-container">Search  :	<input type="text" style="background: transparent;color:white" name="query" class="fill-width"> <button id="searchButton" class="button"> GO</button>
-	
-			</div>
-		</form>
-	</div>
->>>>>>> 6fa6b8378cd740c7a159e256556b32d26b5e3019
 	<div id="lowerHalf">
 		
 	</div>
@@ -157,11 +126,8 @@
 		$('#searchForm').submit(function (e) {
 			var formObj=$(this);
 			var data=parseJQueryForm(formObj);
-<<<<<<< HEAD
            var url="http://10.177.7.88:7000/search/all/"+data['query'];
-=======
-            var url="http://10.177.7.88:7000/search?query="+data['query'];
->>>>>>> 6fa6b8378cd740c7a159e256556b32d26b5e3019
+           	           	// debugger
 			fetchFromGetEndpoint(url,function(res){
 	            console.log(res);
 	           for(index in res){
@@ -171,7 +137,6 @@
 	    	 // AJAX Get Jquery statment
 	    	 e.preventDefault();
         });
-
         function createProductCard(objectProduct){
         	$(document).ready(function(){
   $("button").click(function(){
@@ -179,9 +144,7 @@
   });
 });
     var div = document.createElement('div');
-
     div.className = 'searchResult';
-
     div.innerHTML =	`<img src="`+objectProduct.imgURL+`" alt="nahi aya" width=100%> <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
     	Best Price: `+objectProduct.bestPrice+`<br>
     	Rating: `+objectProduct.rating+`/5 
@@ -190,7 +153,6 @@
         // <input type="text" name="value" value="" />\
         // <label> <input type="checkbox" name="check" value="1" /> Checked? </label>\
         // <input type="button" value="-" onclick="removeRow(this)">';
-
     document.getElementById('lowerHalf').appendChild(div);
 }
 	</script>
