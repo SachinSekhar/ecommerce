@@ -1,6 +1,66 @@
 <html>
 	<head >
 		  <style type="text/css">
+		  html, body {
+  text-align: center;
+  padding-top: 40px;
+  
+  -webkit-perspective: 700px;
+     -moz-perspective: 700px;
+      -ms-perspective: 700px;
+          perspective: 700px;
+}
+
+/* Reset */
+button,a {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+/* Custom */
+button,a {
+  display: inline-block;
+  position: relative;
+  padding: 10px 38px;
+  top: 0;
+  font-size: 20px;
+  font-family: "Open Sans", Helvetica;
+  border-radius: 4px;
+  border-bottom: 1px solid rgba( 28, 227, 125, 0.5 );
+  background: rgba( 22, 230, 137, 1 );
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
+  
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+          transform: translateZ(0);
+  
+  -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+button:hover,a:hover {
+  top: -10px;
+  box-shadow: 0px 10px 10px rgba( 15, 165, 60, 0.2 );
+  
+  -webkit-transform: rotateX(20deg);
+     -moz-transform: rotateX(20deg);
+      -ms-transform: rotateX(20deg);
+          transform: rotateX(20deg);
+}
+
+button:active,a.active {
+  top: 0px;
+  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
+  background: rgba( 20, 224, 133, 1 );
+}
 		  		.center {
   					margin: auto;
   					width: 50%;
@@ -12,7 +72,7 @@
 							color:white;
 							background: transparent;
 							padding: 5;
-							width: 50%
+							width: 30%
 						}
 						.button {
   								padding: 5; 
@@ -28,36 +88,53 @@
 <!-- 		  <div class="center" style="padding: 10px;background-color:aqua	 ">
  -->			<h1 style="text-align:center;padding: 10; color: white">Dukaan.com</h1>
 		<!-- </div> -->
+			<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="../JS/helper.js"></script>
 	</head>
 
 	<body background="../background.png">
+		<!-- <body> -->
 		
 		<div class="center">
-		<form method="POST" action="http://172.16.20.87:8080/auth/login" enctype="application/json">
-			<div class="textbox">
+		<form method="POST" action="http://172.16.20.87:8080/auth/login" enctype="application/json" id="loginForm">
+			<div>EMAIL ID :  <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
+</div>
+&nbsp;
+	<div>			PASSWORD : <input type="Password" name="password" required style="background: transparent;"><br><br>
 
-
-				Email Id :  <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
-
-
-			</div>
-			<div class="textbox" style="color:white">
-
-
-				Password : <input type="Password" name="password" required style="background: transparent;"><br><br>
-
-
+</div>
 			</div>
 			<div>
 
-				<button class="button">Login</button>
+				<button>Login</button>
 		    
-			<a href="forgotPassword.html" class="button"> Forgot Password?</a><br><br>
-			<a href="Signup.html" class="button"> Sign Up</a>
+			<a href="forgotPassword.html" > Forgot Password?</a><br><br>
+			<a href="Signup.html" > Sign Up</a>
 			</div>
 			
 		</div>
 		</form>
 	</div>
+	<script type="text/javascript">
+
+		$('#loginForm').submit(function (e) {
+			var url="http://10.177.7.88:8080/auth/login";
+			var formObj=$(this);
+			var data=parseJQueryForm(formObj);
+            submitPostForm(url,data,function(res){
+	            console.log(res);
+	            if(res.status==("SUCESSS"))
+	            	window.location.replace('../Pages/Landing.html');
+	            else
+	            	alert("WRONG LOGIN CREDENTIALS");
+
+	    	})
+	    	 // AJAX Get Jquery statment
+	    	 e.preventDefault();
+        });
+	</script>
 	</body>
 </html>
