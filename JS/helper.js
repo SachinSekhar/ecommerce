@@ -9,6 +9,14 @@ function submitPostForm(url, data1, callback)
         success: callback
     });
 }
+function fetchFromGetEndpoint(url, callback)
+{
+	$.ajax({
+		url: url,
+        type: 'GET',
+        success: callback
+    });
+}
 function parseJQueryForm(jQueryForm)
 {
 	var obj={};

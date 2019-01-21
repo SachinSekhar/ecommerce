@@ -23,7 +23,7 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-  <script src="http://172.16.20.94:8001/JS/helper.js"></script>
+  <script src="../JS/helper.js"></script>
 		</head>
 	<body background="../background.png">
 		<h1 style="text-align:center;padding: 10; color: white">Dukaan.com</h1>
@@ -59,7 +59,9 @@
             submitPostForm(url,data,function(res){
 	            console.log(res);
 	            if(res.status==("SUCCESS"))
-	            	window.location.replace('../Pages/Landing.html');
+	            	window.location.replace('../Pages/Login.html');
+	            else
+	            	alert(res.message);
 
 	    	})
 	    	 // AJAX Get Jquery statment
