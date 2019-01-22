@@ -2,7 +2,13 @@
 <html>
 <head>
 	<style type="text/css">
+	.cartCss{
+		background : none;
+		border-bottom: 1px solid #444;
+		cursor: pointer;
+	}
 		.searchResult{
+	
 	width : 23%;
 	border: 1px solid white;
 	height: 20%;
@@ -78,7 +84,7 @@
 										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 											<i class="fa fa-shopping-cart"></i>
 											<span>
-												<input type=button onClick="parent.location='cart.html'" value='cart'>
+												<input type=button class="cartCss" onClick="parent.location='cart.html'" value='cart'>
 											</span>
 											
 										</a>
