@@ -1,126 +1,69 @@
-<html>
-	<head >
-		  <style type="text/css">
-		  html, body {
-  text-align: center;
-  padding-top: 40px;
-  
-  -webkit-perspective: 700px;
-     -moz-perspective: 700px;
-      -ms-perspective: 700px;
-          perspective: 700px;
-}
 
-/* Reset */
-button,a {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  outline: 0;
-  -webkit-appearance: none;
-}
+  <html>
+    <head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+  <link rel="stylesheet" type="text/css" href="../CSS/login.css">
 
-/* Custom */
-button,a {
-  display: inline-block;
-  position: relative;
-  padding: 10px 38px;
-  top: 0;
-  font-size: 20px;
-  font-family: "Open Sans", Helvetica;
-  border-radius: 4px;
-  border-bottom: 1px solid rgba( 28, 227, 125, 0.5 );
-  background: rgba( 22, 230, 137, 1 );
-  color: #fff;
-  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.1 );
- 
-}
-
-button:hover,a:hover {
-  top: -10px;
-  box-shadow: 0px 10px 10px rgba( 15, 165, 60, 0.2 );
-  
-  -webkit-transform: rotateX(20deg);
-     -moz-transform: rotateX(20deg);
-      -ms-transform: rotateX(20deg);
-          transform: rotateX(20deg);
-}
-
-button:active,a.active {
-  top: 0px;
-  box-shadow: 0px 0px 0px rgba( 15, 165, 60, 0.0 );
-  background: rgba( 20, 224, 133, 1 );
-}
-		  		.center {
-  					margin: auto;
-  					width: 50%;
-  					padding: 10px;
-  					text-align: center;
-						}
-						.textbox
-						{
-							color:white;
-							background: transparent;
-							padding: 5;
-							width: 30%
-						}
-						.button {
-  								padding: 5; 
-  								background-color:teal;
-  								color:white;border-top: 1px solid #CCCCCC;
-  								border-right: 1px solid #333333;
-  								border-bottom: 1px solid #333333;
-  								border-left: 1px solid #CCCCCC; 
-  								font: bold 11px Arial;
-								text-decoration: none;
-}
-		  </style>
- 			<h1 style="text-align:center;padding: 10; color: white; font-family: fantasy;">Dukaan.com</h1>
-			<script
+   <!--  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="../JS/helper.js"></script>
-	</head>
+  <!------ Include the above in your HEAD tag ---------->
+    </head>
+  <body id="LoginForm">
+  <div class="container">
+  <div class="login-form">
+  <div class="main-div" style="padding: 20px">
+      <div class="panel">
+        <h1>Dukaan.com</h1>
+        <h2>User Login</h2>
+        <p>Please enter your email and password</p>
+     </div>
+      <form method="POST" action="http://172.16.20.87:8080/auth/login" enctype="application/json" id="loginForm">
+          <div class="form-group">
+              <input type="Email" name="emailId" id="inputEmail" class="form-control" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" placeholder="Email Address">
+          </div>
 
-    <body style="background-color: yellow;color: white">
-		<div class="center" style="border:2px solid white">
-		<form method="POST" action="http://172.16.20.87:8080/auth/login" enctype="application/json" id="loginForm">
-			<div style="margin:10px">EMAIL ID  :   <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
-</div>
-	<div>			PASSWORD : <input type="Password" name="password" required style="background: transparent;"><br><br>
-	
+          <div class="form-group">
+              <input type="Password" name="password" required class="form-control" id="inputPassword" placeholder="Password">
+          </div>
+          <div class="forgot">
+             <a href="reset.html">Forgot password?</a>
+          </div>
+          <div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          
+        </div>
+      </form>
+      </div></div>
+      <hr>
+      <div style="align:center; padding-left:40%; font-size:30px;">New user?</div>
+      <a style="align:center; padding-left:40%; font-size:30px; " href="Signup.html">Create new account</a>
+    <script type="text/javascript">
 
-				<button>Login</button>
-		    
-			<a href="forgotPassword.html" > Forgot Password?</a><br><br>
-			<a href="Signup.html" > Sign Up</a>
-			</div>
-			
-		</div>
-		</form>
-	</div>
-	<script type="text/javascript">
-
-		$('#loginForm').submit(function (e) {
-			var url="http://10.177.7.88:8080/auth/login";
-			var formObj=$(this);
-			var data=parseJQueryForm(formObj);
+    $('#loginForm').submit(function (e) {
+      var url="http://10.177.7.88:8080/auth/login";
+      var formObj=$(this);
+      var data=parseJQueryForm(formObj);
             submitPostForm(url,data,function(res){
-	            console.log(res);
-	            if(res.status==("SUCCESS"))
-                {
-                  localStorage.setItem('token',data["emailId"]);
-	            	  window.location.replace('../Pages/Landing.html');
-              }
-	            else
-	            	alert("WRONG LOGIN CREDENTIALS");
+              console.log(res);
+              if(res.status==("SUCCESS"))
+                window.location.replace('Landing.html');
+    
+              else
+                alert("WRONG LOGIN CREDENTIALS");
 
-	    	})
-	    	 // AJAX Get Jquery statment
-	    	 e.preventDefault();
+        })
+         // AJAX Get Jquery statment
+         e.preventDefault();
         });
-	</script>
-	</body>
-</html>
+  </script>
+  </body>
+  </html>
