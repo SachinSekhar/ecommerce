@@ -212,10 +212,11 @@
 		});
 
 		function createProductCard(objectProduct) {
+			console.log(objectProduct.imageSrc[0]);
 			
 			var div = document.createElement('div');
 			div.className = 'searchResult';
-			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc[0] + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
 				objectProduct.productName + `</h2>
     	Best Price: ` + objectProduct.bestPrice + `<br>
     	Rating: ` +

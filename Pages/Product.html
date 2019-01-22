@@ -59,7 +59,7 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-right">
-					<li><a href="Landing.html">
+					<li><a href="../Pages/Landing.html">
 							<h1 style="color: black">DUKAAN.COM</h1>
 						</a></li>
 					<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
@@ -134,7 +134,8 @@
 <script type="text/javascript">
 	function fetchProduct()
 	{
-		var productId=location.search.split('?id=')[1]
+		var productId=location.search.split('?id=')[1];
+		console.log(productId);
 		var productURL="http://10.177.7.88:5000/product/get/{id}"+productId;
 		fetchFromGetEndpoint(productURL,function(res){
 			console.log(res);
@@ -157,8 +158,13 @@
 		});
 		function createProductDiv(objectProduct){
 			var divProduct=document.createElement('div');
-			divProduct.className= 'productBox';
-			divProduct.innerHTML= ``
+			console.log(objectProduct.imageSrc);
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+				objectProduct.productName + `</h2>
+    	Best Price: ` + objectProduct.bestPrice + `<br>
+    	Rating: ` +
+				objectProduct.rating + `/5 `
+			document.getElementById('lowerHalf').appendChild(div);
 
 		}
 		$(document).ready(function () {
