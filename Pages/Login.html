@@ -84,7 +84,7 @@ button:active,a.active {
   <script src="../JS/helper.js"></script>
 	</head>
 
-    <body style="background-color: black;color: white">
+    <body style="background-color: yellow;color: white">
 		<div class="center" style="border:2px solid white">
 		<form method="POST" action="http://172.16.20.87:8080/auth/login" enctype="application/json" id="loginForm">
 			<div style="margin:10px">EMAIL ID  :   <input type="Email" name="emailId" required pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" style="background: transparent;"><br>
@@ -110,11 +110,7 @@ button:active,a.active {
             submitPostForm(url,data,function(res){
 	            console.log(res);
 	            if(res.status==("SUCESSS"))
-              {
-                var cartEndpoint="";
-                fetchFromGetEndpoint(cartEndpoint,function(res){
-                  localStorage.setItem('cart',res.product);
-                })
+                {localStorage.setItem('token',data["emailId"]);
 	            	window.location.replace('../Pages/Landing.html');
               }
 	            else

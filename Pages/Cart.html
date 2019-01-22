@@ -1,10 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style type="text/css">
+		.searchResult{
+	width : 23%;
+	border: 1px solid white;
+	height: 20%;
+	color:black;
+	display: inline-block;
+	padding:1em;
+	margin : 10px;
+	background-color: white;
+	box-sizing: border-box;
+	align-items: center;
+	border-radius: 7px;
+}
+	</style>
+	 <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  		  <meta charset="utf-8">
+			<title>Ecommerce project</title>
+			<link rel="stylesheet" type="text/css" href="../CSS/landing.css">
+			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
+			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
+			<!-- nouislider -->
+			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css"/>
+			<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+<script src="../JS/helper.js"></script>
 	<title></title>
 </head>
-<body>
-<h1>Hello</h1>
+<body onload="javascript:yourFunction()">
+	<header>
+				<!-- TOP HEADER -->
+				<div id="top-header">
+					<div class="container">
+						<ul class="header-links pull-right">
+							<li><a href="Landing.html"><h1>DUKAAN.COM</h1></a></li>
+							<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
+							<li><a href="Signup.html" style="font-size: 20px;font-weight:bold">Signup</a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="header">
+					<!-- container -->
+					<div class="container">
+						<!-- row -->
+						<div class="row">
+							
+							<div class="col-md-9">
+								<div class="header-search">
+									<form id="searchForm">
+										
+										<input type="text" class="input" placeholder="Search here" name="query">
+										<button class="search-btn button" id="searchButton">Search</button>
+									</form>
+								</div>
+							</div>
+							<!-- /SEARCH BAR -->
+
+							<!-- ACCOUNT -->
+							<div class="col-md-3 clearfix">
+								<div class="header-ctn">
+									<!-- Wishlist -->
+									<div>
+										<a href="#">
+											<i class="fa fa-heart-o"></i>
+											<span>Your Wishlist</span>
+											<!-- <div class="qty">2</div> -->
+										</a>
+									</div>
+									
+									<div class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+											<i class="fa fa-shopping-cart"></i>
+											<span>
+												<input type=button onClick="parent.location='cart.html'" value='cart'>
+											</span>
+											
+										</a>
+									</div>
+									
+									<div class="menu-toggle">
+										<a href="#">
+											<i class="fa fa-bars"></i>
+											<span>Menu</span>
+										</a>
+									</div>
+									<!-- /Menu Toogle -->
+								</div>
+							</div>
+							<!-- /ACCOUNT -->
+						</div>
+						<!-- row -->
+					</div>
+					<!-- container -->
+				</div>
+				<!-- /MAIN HEADER -->
+			</header>
+			<!-- /HEADER -->
+<div id="cartContainer"></div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
+<script type="text/javascript">
+
+function yourFunction(){
+ var tokens=localStorage.getItem('token');
+ 
+        	var url="http://localhost:8000/cart/select?token="+tokens;
+        	fetchFromGetEndpoint(url,function(res){
+	            console.log(res);
+	           if(res==null)
+	           	{var div = document.createElement('div');
+    div.className = 'searchResult';
+    div.innerHTML =	`<img src="`+objectProduct.imageUrl+ `" alt="nahi aya" width=100%> `}
+    else{
+	           for(index in res.product){
+	           	debugger;
+	           	createCart(res.product[index]);
+	           }
+	       }
+	    	})
+	    	 
+
+}
+function createCart(objectProduct)
+{
+	$(document).ready(function(){
+  $("button").click(function(){
+    $(".searchResult").remove();
+  });
+});
+    var div = document.createElement('div');
+    div.className = 'searchResult';
+    div.innerHTML =	`<img src="`+objectProduct.imageUrl+ `" alt="nahi aya" width=100%> 
+    <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
+   
+    Rating: `+objectProduct.productRating+`/5`
+        
+    document.getElementById("cartContainer").appendChild(div);
+}
+
+</script>
+
 
 </body>
 </html>
