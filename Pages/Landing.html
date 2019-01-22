@@ -73,11 +73,7 @@
 		<div id="header">
 			<div class="container">
 				<div class="row">
-<<<<<<< HEAD
-					<!-- SEARCH BAR -->
-=======
->>>>>>> b1b74dfdd64e3e5782fe8eea6e46ad0c98b07fec
-					<div class="col-md-9">
+					<div class="col-md-8">
 						<div class="header-search">
 							<form id="searchForm">
 
@@ -86,8 +82,14 @@
 							</form>
 						</div>
 					</div>
-					<div class="col-md-3 clearfix">
+					<div class="col-md-4 clearfix">
 						<div class="header-ctn">
+							<div>
+								<a href="Landing.html">
+									<i class="fa fa-heart-o"></i>
+									<span> Back to Categories </span>
+								</a>
+							</div>
 							<div>
 								<a href="#">
 									<i class="fa fa-heart-o"></i>
@@ -126,19 +128,22 @@
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
-<<<<<<< HEAD
+<!-- <div style="height: 100px; width: 200px">
+				<a href="#" alt="image"><img src="../Assets/iphone/iphone 7+ (2).jpeg"></a>
+				<p style="font-weight: bold">Phones</p>
+			</div> -->
 	<div class="row cate" style="padding-left: 30px">
-			<div class="categoryBox col-md-3 searchResult"style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Electronics">
+			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Electronics">
  				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Electronics</p>
 			</div>
-			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Mobiles">
+			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Phones">
  				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
-   				 <p style="font-size:30px; text-align: center;">Mobiles</p>
+   				 <p style="font-size:30px; text-align: center;">Phones</p>
 			</div>
-			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Clothing">
+			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Phone Accessories">
  				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
-   				 <p style="font-size:30px; text-align: center;">Clothing</p>
+   				 <p style="font-size:30px; text-align: center;">Phone Accessories</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Furniture">
  				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
@@ -151,9 +156,9 @@
  				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Watches</p>
 			</div>
-			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Toys">
+			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Clothing">
  				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
-   				 <p style="font-size:30px; text-align: center;">Toys</p>
+   				 <p style="font-size:30px; text-align: center;">Clothing</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Shoes">
  				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
@@ -164,33 +169,23 @@
    				 <p style="font-size:30px; text-align: center;">Jewellery</p>
 			</div>
 		</div>
-=======
-	<div style="height: 23%;width: 23%; border:2px solid black; margin: 5px " class="categoryBox searchResult" value="Phones">
-		<img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
-		<p style="font-size:30px; text-align: center;">Phones</p>
-	</div>
+	
 
-	<!-- <div style="height: 100px; width: 200px">
-				<a href="#" alt="image"><img src="../Assets/iphone/iphone 7+ (2).jpeg"></a>
-				<p style="font-weight: bold">Phones</p>
-			</div> -->
+	
 	<div id="lowerHalf">
 
 	</div>
->>>>>>> b1b74dfdd64e3e5782fe8eea6e46ad0c98b07fec
 	<script type="text/javascript">
 		$('#searchForm').submit(function (e) {
 			var formObj = $(this);
 			var data = parseJQueryForm(formObj);
 			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
-			// debugger
 			fetchFromGetEndpoint(url, function (res) {
 				console.log(res);
 				for (index in res) {
 					createProductCard(res[index]);
 				}
 			})
-			// AJAX Get Jquery statment
 			e.preventDefault();
 		});
 		$(document).ready(function () {
@@ -206,6 +201,8 @@
 			var category=$(this).attr('value')
 			var urlCategory="http://10.177.7.135:8080/product/category/"+category;
 			fetchFromGetEndpoint(urlCategory,function(res){
+							console.log(res);
+
 				clearSearchResults();
 				for (index in res) {
 					createProductCard(res[index]);
@@ -217,16 +214,11 @@
 		function createProductCard(objectProduct) {
 			var div = document.createElement('div');
 			div.className = 'searchResult';
-			div.innerHTML = `<img src="` + objectProduct.imgURL + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+			div.innerHTML = `<a href="Product.html"><img src"` + objectProduct.imgURL + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
 				objectProduct.productName + `</h2>
     	Best Price: ` + objectProduct.bestPrice + `<br>
     	Rating: ` +
-				objectProduct.rating + `/5 
-    `
-			// '<input type="text" name="name" value="'" />\
-			// <input type="text" name="value" value="" />\
-			// <label> <input type="checkbox" name="check" value="1" /> Checked? </label>\
-			// <input type="button" value="-" onclick="removeRow(this)">';
+				objectProduct.rating + `/5 `
 			document.getElementById('lowerHalf').appendChild(div);
 		}
 	</script>
