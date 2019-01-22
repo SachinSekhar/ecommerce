@@ -8,9 +8,7 @@
 		cursor: pointer;
 	}
 	.newClass{
-		background : none;
-		border-bottom: 1px solid #444;
-		cursor: pointer;
+	
 
 	}
 		.searchResult{
@@ -55,7 +53,7 @@
 							<li><a href="Landing.html"><h1>DUKAAN.COM</h1></a></li>
 							<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
 							<li><a href="Signup.html" style="font-size: 20px;font-weight:bold">Signup</a></li>
-							<li><button class="btn btn-info btn-lg button" onclick="signoutFunc()">SIGNOUT</button></span></li>
+							<li><button class="btn btn-info btn-lg button" onclick="signoutFunc()">SIGNOUT</button></li>
 
 						</ul>
 					</div>
@@ -126,7 +124,7 @@
 <script type="text/javascript">
 
 function yourFunction(){
-	
+	debugger;
  var tokens=sessionStorage.getItem('token');
 
 if(tokens=="guest@gmail.com")
@@ -153,11 +151,11 @@ else
 
 function createCart(objectProduct)
 {
-	$(document).ready(function(){
-  $("button").click(function(){
-    $(".searchResult").remove();
-  });
-});
+// 	$(document).ready(function(){
+//   $("button").click(function(){
+//     $(".searchResult").remove();
+//   });
+// });
     var div = document.createElement('div');
     div.className = 'searchResult';
     div.innerHTML =	`<img src="`+objectProduct.imageUrl+ `" alt="nahi aya" width=100%> 
@@ -205,7 +203,7 @@ function signoutFunc()
 function clearSearchResults()
 		{
 			$(".searchResult").remove();
-			$(".newClass").remove();
+		
 		}
 function createProductCard(objectProduct) {
 			var div = document.createElement('div');

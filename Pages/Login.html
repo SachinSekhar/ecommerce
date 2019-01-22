@@ -49,13 +49,14 @@
     <script type="text/javascript">
 
     $('#loginForm').submit(function (e) {
-      var url="http://10.177.7.88:8080/auth/login";
+      var url="http://10.177.7.88:4000/auth/signin";
       var formObj=$(this);
       var data=parseJQueryForm(formObj);
             submitPostForm(url,data,function(res){
               console.log(res);
               if(res.status==("SUCCESS"))
-                {sessionStorage.setItem('token',data['emailId']);
+                {
+                  sessionStorage.setItem('token',data["emailId"]);
                 window.location.replace('Landing.html');
               }
     
