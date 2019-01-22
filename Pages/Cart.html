@@ -112,20 +112,17 @@
 
 function yourFunction(){
  var tokens=localStorage.getItem('token');
- 
+ tokens="sachin@gmail.com"
         	var url="http://localhost:8000/cart/select?token="+tokens;
+
         	fetchFromGetEndpoint(url,function(res){
 	            console.log(res);
-	           if(res==null)
-	           	{var div = document.createElement('div');
-    div.className = 'searchResult';
-    div.innerHTML =	`<img src="`+objectProduct.imageUrl+ `" alt="nahi aya" width=100%> `}
-    else{
+	          
 	           for(index in res.product){
 	           	debugger;
 	           	createCart(res.product[index]);
 	           }
-	       }
+	       
 	    	})
 	    	 
 
