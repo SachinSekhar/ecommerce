@@ -125,17 +125,64 @@
 		<!-- /MAIN HEADER -->
 	</header>
 <body>
-<h1>Hello There</h1>
+	<div id="productBox">
+		
+	</div>
+	<div id="lowerHalf">
+
+	</div>
 <script type="text/javascript">
 	function fetchProduct()
 	{
 		var productId=location.search.split('?id=')[1]
-		var productURL="http://10.177.7.135:8080/product/get/"+productId;
+		var productURL="http://10.177.7.88:5000/product/get/{id}"+productId;
 		fetchFromGetEndpoint(productURL,function(res){
 			console.log(res);
+			createProductDiv(res);
 		})
 	}
 	document.onready=fetchProduct();
+
+		$('#searchForm').submit(function (e) {
+			var formObj = $(this);
+			var data = parseJQueryForm(formObj);
+			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
+			fetchFromGetEndpoint(url, function (res) {
+				console.log(res);
+				for (index in res) {
+					createProductCard(res[index]);
+				}
+			})
+			e.preventDefault();
+		});
+		function createProductDiv(objectProduct){
+			var divProduct=document.createElement('div');
+			divProduct.className= 'productBox';
+			divProduct.innerHTML= ``
+
+		}
+		$(document).ready(function () {
+			$("button").click(function () {
+				clearSearchResults()
+			});
+		});
+		function clearSearchResults()
+		{
+			$(".searchResult").remove();
+		}
+		function createProductCard(objectProduct) {
+			console.log(objectProduct.imageSrc);
+			
+			var div = document.createElement('div');
+			div.className = 'searchResult';
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+				objectProduct.productName + `</h2>
+    	Best Price: ` + objectProduct.bestPrice + `<br>
+    	Rating: ` +
+				objectProduct.rating + `/5 `
+			document.getElementById('lowerHalf').appendChild(div);
+		}
+
 </script>
 </body>
 </html>
