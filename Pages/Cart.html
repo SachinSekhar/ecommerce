@@ -7,7 +7,14 @@
 		border-bottom: 1px solid #444;
 		cursor: pointer;
 	}
+	.newClass{
+		background : none;
+		border-bottom: 1px solid #444;
+		cursor: pointer;
+
+	}
 		.searchResult{
+	
 	
 	width : 23%;
 	border: 1px solid white;
@@ -48,6 +55,8 @@
 							<li><a href="Landing.html"><h1>DUKAAN.COM</h1></a></li>
 							<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
 							<li><a href="Signup.html" style="font-size: 20px;font-weight:bold">Signup</a></li>
+							<li><button class="btn btn-info btn-lg button" onclick="signoutFunc()" > <span class="glyphicon glyphicon-log-out">SIGNOUT</button></span></li>
+
 						</ul>
 					</div>
 				</div>
@@ -117,22 +126,31 @@
 <script type="text/javascript">
 
 function yourFunction(){
- var tokens=localStorage.getItem('token');
- tokens="sachin@gmail.com"
-        	var url="http://localhost:8000/cart/select?token="+tokens;
+	
+ var tokens=sessionStorage.getItem('token');
+
+if(tokens=="guest@gmail.com")
+{
+	 var div=document.createElement('div');
+    div.className = 'newClass';
+    div.innerHTML =	`<h1>Please <a href="Login.html"> Login </a> to see your Cart!`;
+    document.getElementById("cartContainer").appendChild(div);
+}
+else
+{
+     var url="http://localhost:8000/cart/select?token="+tokens;
 
         	fetchFromGetEndpoint(url,function(res){
 	            console.log(res);
 	          
 	           for(index in res.product){
-	           	debugger;
-	           	createCart(res.product[index]);
+	           createCart(res.product[index]);
 	           }
 	       
-	    	})
-	    	 
+	    	})	    	 
+        }
+    }
 
-}
 function createCart(objectProduct)
 {
 	$(document).ready(function(){
@@ -149,6 +167,64 @@ function createCart(objectProduct)
         
     document.getElementById("cartContainer").appendChild(div);
 }
+
+
+$('#searchForm').submit(function (e) {
+			var formObj = $(this);
+			var data = parseJQueryForm(formObj);
+			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
+			// debugger
+			fetchFromGetEndpoint(url, function (res) {
+				console.log(res);
+				for (index in res) {
+					createProductCard(res[index]);
+				}
+			})
+			// AJAX Get Jquery statment
+			e.preventDefault();
+		});
+		$(document).ready(function () {
+			$("button").click(function () {
+				clearSearchResults()
+			});
+		});
+
+
+
+function signoutFunc()
+{
+		sessionStorage.setItem('token','guest@gmail.com')
+// window.load("cart.html");
+  var div = document.createElement('div');
+    div.className = 'newClass';
+    div.innerHTML =	`<h1>Please <a href="Login.html"> Login </a> to see your Cart!`;
+    document.getElementById("cartContainer").appendChild(div);
+    
+
+}
+
+
+
+
+
+
+
+
+function clearSearchResults()
+		{
+			$(".searchResult").remove();
+			$(".newClass").remove();
+		}
+function createProductCard(objectProduct) {
+			var div = document.createElement('div');
+			div.className = 'searchResult';
+			div.innerHTML = `<img src="` + objectProduct.imgURL + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+				objectProduct.productName + `</h2>
+    	Best Price: ` + objectProduct.bestPrice + `<br>
+    	Rating: ` +
+				objectProduct.rating + `/5 `
+			document.getElementById('cartContainer').appendChild(div);
+		}
 
 </script>
 
