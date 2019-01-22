@@ -1,187 +1,209 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<style type="text/css">
-		.searchResult{
-	width : 23%;
-	border: 1px solid white;
-	height: 20%;
-	color:black;
-	display: inline-block;
-	padding:1em;
-	margin : 10px;
-	background-color: white;
-	box-sizing: border-box;
-	align-items: center;
-	border-radius: 7px;
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-  border-radius: 5px;
-}
+		.searchResult {
+			width: 23%;
+			border: 1px solid white;
+			height: 20%;
+			color: black;
+			display: inline-block;
+			padding: 1em;
+			margin: 10px;
+			background-color: white;
+			box-sizing: border-box;
+			align-items: center;
+			border-radius: 7px;
+		}
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+		.card {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			transition: 0.3s;
+			width: 40%;
+			border-radius: 5px;
+		}
 
-img {
-  border-radius: 5px 5px 0 0;
-}
+		.card:hover {
+			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+		}
 
-.container {
-  padding: 2px 16px;
-}
+		img {
+			border-radius: 5px 5px 0 0;
+		}
+
+		.container {
+			padding: 2px 16px;
+		}
 	</style>
 
-<title>Ecommerece Project</title>
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	  		  <meta charset="utf-8">
-			<title>Ecommerce project</title>
-			<link rel="stylesheet" type="text/css" href="../CSS/landing.css">
-			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<title>Ecommerece Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<meta charset="utf-8">
+	<title>Ecommerce project</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/landing.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
-			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
-			<!-- nouislider -->
-			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css"/>
-			<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-			<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script src="../JS/helper.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css" />
+	<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<script src="../JS/helper.js"></script>
 
 </head>
-		<header>
-				<!-- TOP HEADER -->
-				<div id="top-header">
-					<div class="container">
-						<ul class="header-links pull-right">
-							<li><a href="Landing.html"><h1>DUKAAN.COM</h1></a></li>
-							<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
-							<li><a href="Signup.html" style="font-size: 20px;font-weight:bold">Signup</a></li>
-						</ul>
-					</div>
-				</div>
-				<div id="header">
-					<!-- container -->
-					<div class="container">
-						<!-- row -->
-						<div class="row">
-							<!-- LOGO -->
-							<!-- <div class="col-md-2">
+
+<body>
+	<header>
+		<!-- TOP HEADER -->
+		<div id="top-header">
+			<div class="container">
+				<ul class="header-links pull-right">
+					<li><a href="Landing.html">
+							<h1>DUKAAN.COM</h1>
+						</a></li>
+					<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
+					<li><a href="Signup.html" style="font-size: 20px;font-weight:bold">Signup</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="header">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- LOGO -->
+					<!-- <div class="col-md-2">
 								<div class="header-logo">
 									<a href="#" class="logo">
 										<img src="./img/logo.png" alt="">
 									</a>
 								</div>
 							</div> -->
-							<!-- /LOGO -->
+					<!-- /LOGO -->
 
-							<!-- SEARCH BAR -->
-							<div class="col-md-9">
-								<div class="header-search">
-									<form id="searchForm">
-										
-										<input type="text" class="input" placeholder="Search here" name="query">
-										<button class="search-btn button" id="searchButton">Search</button>
-									</form>
-								</div>
-							</div>
-							<!-- /SEARCH BAR -->
+					<!-- SEARCH BAR -->
+					<div class="col-md-9">
+						<div class="header-search">
+							<form id="searchForm">
 
-							<!-- ACCOUNT -->
-							<div class="col-md-3 clearfix">
-								<div class="header-ctn">
-									<!-- Wishlist -->
-									<div>
-										<a href="#">
-											<i class="fa fa-heart-o"></i>
-											<span>Your Wishlist</span>
-											<!-- <div class="qty">2</div> -->
-										</a>
-									</div>
-									<!-- /Wishlist -->
-
-									<!-- Cart -->
-									<div class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-											<i class="fa fa-shopping-cart"></i>
-											<span><a href="cart.html">Your Cart</a></span>
-											<!-- <div class="qty">3</div> -->
-										</a>
-									</div>
-									<!-- /Cart -->
-
-									<!-- Menu Toogle -->
-									<div class="menu-toggle">
-										<a href="#">
-											<i class="fa fa-bars"></i>
-											<span>Menu</span>
-										</a>
-									</div>
-									<!-- /Menu Toogle -->
-								</div>
-							</div>
-							<!-- /ACCOUNT -->
+								<input type="text" class="input" placeholder="Search here" name="query">
+								<button class="search-btn button" id="searchButton">Search</button>
+							</form>
 						</div>
-						<!-- row -->
 					</div>
-					<!-- container -->
-				</div>
-				<!-- /MAIN HEADER -->
-			</header>
-			<!-- /HEADER -->
-			<div style="height: 23%;width: 23%; border:2px solid black; margin: 5px ">
-  <a><img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%"></a>
-    <p style="font-size:30px; text-align: center;">Phones</p>
-</div>
+					<!-- /SEARCH BAR -->
 
-			<!-- <div style="height: 100px; width: 200px">
+					<!-- ACCOUNT -->
+					<div class="col-md-3 clearfix">
+						<div class="header-ctn">
+							<!-- Wishlist -->
+							<div>
+								<a href="#">
+									<i class="fa fa-heart-o"></i>
+									<span>Your Wishlist</span>
+									<!-- <div class="qty">2</div> -->
+								</a>
+							</div>
+							<!-- /Wishlist -->
+
+							<!-- Cart -->
+							<div class="dropdown">
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+									<i class="fa fa-shopping-cart"></i>
+									<span><a href="cart.html">Your Cart</a></span>
+									<!-- <div class="qty">3</div> -->
+								</a>
+							</div>
+							<!-- /Cart -->
+
+							<!-- Menu Toogle -->
+							<div class="menu-toggle">
+								<a href="#">
+									<i class="fa fa-bars"></i>
+									<span>Menu</span>
+								</a>
+							</div>
+							<!-- /Menu Toogle -->
+						</div>
+					</div>
+					<!-- /ACCOUNT -->
+				</div>
+				<!-- row -->
+			</div>
+			<!-- container -->
+		</div>
+		<!-- /MAIN HEADER -->
+	</header>
+	<!-- /HEADER -->
+	<div style="height: 23%;width: 23%; border:2px solid black; margin: 5px " class="categoryBox" value="Phones">
+		<img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+		<p style="font-size:30px; text-align: center;">Phones</p>
+	</div>
+
+	<!-- <div style="height: 100px; width: 200px">
 				<a href="#" alt="image"><img src="../Assets/iphone/iphone 7+ (2).jpeg"></a>
 				<p style="font-weight: bold">Phones</p>
 			</div> -->
 	<div id="lowerHalf">
-		
+
 	</div>
-		<script type="text/javascript">
+	<script type="text/javascript">
 		$('#searchForm').submit(function (e) {
-			var formObj=$(this);
-			var data=parseJQueryForm(formObj);
-           var url="http://10.177.7.88:7000/search/all/"+data['query'];
-           	           	// debugger
-			fetchFromGetEndpoint(url,function(res){
-	            console.log(res);
-	           for(index in res){
-	           	createProductCard(res[index]);
-	           }
-	    	})
-	    	 // AJAX Get Jquery statment
-	    	 e.preventDefault();
-        });
-        function createProductCard(objectProduct){
-        	$(document).ready(function(){
-  $("button").click(function(){
-    $(".searchResult").remove();
-  });
-});
-    var div = document.createElement('div');
-    div.className = 'searchResult';
-    div.innerHTML =	`<img src="`+objectProduct.imgURL+`" alt="nahi aya" width=100%> <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
-    	Best Price: `+objectProduct.bestPrice+`<br>
-    	Rating: `+objectProduct.rating+`/5 
+			var formObj = $(this);
+			var data = parseJQueryForm(formObj);
+			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
+			// debugger
+			fetchFromGetEndpoint(url, function (res) {
+				console.log(res);
+				for (index in res) {
+					createProductCard(res[index]);
+				}
+			})
+			// AJAX Get Jquery statment
+			e.preventDefault();
+		});
+		$(document).ready(function () {
+			$("button").click(function () {
+				$(".searchResult").remove();
+			});
+		});
+		$(".categoryBox").on('click', function (e) {
+			var category=$(this).attr('value')
+			console.log(category)
+			///MAKE REQUEST HERE
+
+			var urlCategory="http://10.177.7.135:8080/product/category/"+category;
+			fetchFromGetEndpoint(urlCategory,function(res){
+				console.log(res);
+				for (index in res) {
+					createProductCard(res[index]);
+				}
+			})
+			e.preventDefault();
+		});
+
+		function createProductCard(objectProduct) {
+			var div = document.createElement('div');
+			div.className = 'searchResult';
+			div.innerHTML = `<img src="` + objectProduct.imgURL + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+				objectProduct.productName + `</h2>
+    	Best Price: ` + objectProduct.bestPrice + `<br>
+    	Rating: ` +
+				objectProduct.rating + `/5 
     `
-        // '<input type="text" name="name" value="'" />\
-        // <input type="text" name="value" value="" />\
-        // <label> <input type="checkbox" name="check" value="1" /> Checked? </label>\
-        // <input type="button" value="-" onclick="removeRow(this)">';
-    document.getElementById('lowerHalf').appendChild(div);
-}
+			// '<input type="text" name="name" value="'" />\
+			// <input type="text" name="value" value="" />\
+			// <label> <input type="checkbox" name="check" value="1" /> Checked? </label>\
+			// <input type="button" value="-" onclick="removeRow(this)">';
+			document.getElementById('lowerHalf').appendChild(div);
+		}
 	</script>
 </body>
+
 </html>
