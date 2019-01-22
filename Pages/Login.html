@@ -55,7 +55,9 @@
             submitPostForm(url,data,function(res){
               console.log(res);
               if(res.status==("SUCCESS"))
+                {sessionStorage.setItem('token',data['emailId']);
                 window.location.replace('Landing.html');
+              }
     
               else
                 alert("WRONG LOGIN CREDENTIALS");

@@ -55,7 +55,7 @@
 							<li><a href="Landing.html"><h1>DUKAAN.COM</h1></a></li>
 							<li><a href="Login.html" style="font-size: 20px;font-weight:bold">Login</a></li>
 							<li><a href="Signup.html" style="font-size: 20px;font-weight:bold">Signup</a></li>
-							<li><button class="btn btn-info btn-lg button" onclick="signoutFunc()" > <span class="glyphicon glyphicon-log-out">SIGNOUT</button></span></li>
+							<li><button class="btn btn-info btn-lg button" onclick="signoutFunc()">SIGNOUT</button></span></li>
 
 						</ul>
 					</div>
@@ -192,12 +192,12 @@ $('#searchForm').submit(function (e) {
 
 
 function signoutFunc()
-{
+{debugger;
 		sessionStorage.setItem('token','guest@gmail.com')
-// window.load("cart.html");
+
   var div = document.createElement('div');
     div.className = 'newClass';
-    div.innerHTML =	`<h1>Please <a href="Login.html"> Login </a> to see your Cart!`;
+    div.innerHTML =	`<h1>Please <a href="Login.html"> Login </a> to see your Cart!</h1>`;
     document.getElementById("cartContainer").appendChild(div);
     
 
