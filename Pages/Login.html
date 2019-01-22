@@ -109,9 +109,10 @@ button:active,a.active {
 			var data=parseJQueryForm(formObj);
             submitPostForm(url,data,function(res){
 	            console.log(res);
-	            if(res.status==("SUCESSS"))
-                {localStorage.setItem('token',data["emailId"]);
-	            	window.location.replace('../Pages/Landing.html');
+	            if(res.status==("SUCCESS"))
+                {
+                  localStorage.setItem('token',data["emailId"]);
+	            	  window.location.replace('../Pages/Landing.html');
               }
 	            else
 	            	alert("WRONG LOGIN CREDENTIALS");

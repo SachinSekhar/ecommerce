@@ -11,7 +11,6 @@ function submitPostForm(url, data1, callback)
 }
 function fetchFromGetEndpoint(url, callback)
 {
-	debugger;
 	$.ajax({
 		url: url,
         type: 'GET',
