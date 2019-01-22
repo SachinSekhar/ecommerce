@@ -110,7 +110,13 @@ button:active,a.active {
             submitPostForm(url,data,function(res){
 	            console.log(res);
 	            if(res.status==("SUCESSS"))
+              {
+                var cartEndpoint="";
+                fetchFromGetEndpoint(cartEndpoint,function(res){
+                  localStorage.setItem('cart',res.product);
+                })
 	            	window.location.replace('../Pages/Landing.html');
+              }
 	            else
 	            	alert("WRONG LOGIN CREDENTIALS");
 

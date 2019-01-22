@@ -73,21 +73,8 @@
 			</div>
 		</div>
 		<div id="header">
-			<!-- container -->
 			<div class="container">
-				<!-- row -->
 				<div class="row">
-					<!-- LOGO -->
-					<!-- <div class="col-md-2">
-								<div class="header-logo">
-									<a href="#" class="logo">
-										<img src="./img/logo.png" alt="">
-									</a>
-								</div>
-							</div> -->
-					<!-- /LOGO -->
-
-					<!-- SEARCH BAR -->
 					<div class="col-md-9">
 						<div class="header-search">
 							<form id="searchForm">
@@ -97,12 +84,8 @@
 							</form>
 						</div>
 					</div>
-					<!-- /SEARCH BAR -->
-
-					<!-- ACCOUNT -->
 					<div class="col-md-3 clearfix">
 						<div class="header-ctn">
-							<!-- Wishlist -->
 							<div>
 								<a href="#">
 									<i class="fa fa-heart-o"></i>
@@ -141,7 +124,7 @@
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
-	<div style="height: 23%;width: 23%; border:2px solid black; margin: 5px " class="categoryBox" value="Phones">
+	<div style="height: 23%;width: 23%; border:2px solid black; margin: 5px " class="categoryBox searchResult" value="Phones">
 		<img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
 		<p style="font-size:30px; text-align: center;">Phones</p>
 	</div>
@@ -170,17 +153,18 @@
 		});
 		$(document).ready(function () {
 			$("button").click(function () {
-				$(".searchResult").remove();
+				clearSearchResults()
 			});
 		});
+		function clearSearchResults()
+		{
+			$(".searchResult").remove();
+		}
 		$(".categoryBox").on('click', function (e) {
 			var category=$(this).attr('value')
-			console.log(category)
-			///MAKE REQUEST HERE
-
 			var urlCategory="http://10.177.7.135:8080/product/category/"+category;
 			fetchFromGetEndpoint(urlCategory,function(res){
-				console.log(res);
+				clearSearchResults();
 				for (index in res) {
 					createProductCard(res[index]);
 				}
