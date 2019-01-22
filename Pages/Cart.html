@@ -202,14 +202,6 @@ function signoutFunc()
     
 
 }
-
-
-
-
-
-
-
-
 function clearSearchResults()
 		{
 			$(".searchResult").remove();
@@ -218,7 +210,7 @@ function clearSearchResults()
 function createProductCard(objectProduct) {
 			var div = document.createElement('div');
 			div.className = 'searchResult';
-			div.innerHTML = `<img src="` + objectProduct.imgURL + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+			div.innerHTML = `<img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
 				objectProduct.productName + `</h2>
     	Best Price: ` + objectProduct.bestPrice + `<br>
     	Rating: ` +
