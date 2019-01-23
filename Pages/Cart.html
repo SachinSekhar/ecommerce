@@ -167,7 +167,7 @@ else
 	           var div=document.createElement('div');
 	           div.className='bottomCart';
 	           sessionStorage.setItem('total',totalPrice);
-	           div.innerHTML=`<h3>Total is : `+totalPrice+`</h3><br><button onclick="myFunc()">Buy Now</button>`;	
+	           div.innerHTML=`<h3>Total is : `+totalPrice+`</h3>`;	
 	           document.getElementById("cartContainer").appendChild(div);       
 	    	})	    	 
         }
@@ -191,9 +191,20 @@ function createCart(objectProduct)
     div.innerHTML =	`<img src="`+objectProduct.imageSrc+ `" alt="nahi aya" width=100%> 
     <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
    
-    Rating: `+objectProduct.productRating+`/5<br>Price:`+objectProduct.price+`<br>Quantity : `+objectProduct.quantity+`<br><button id="`+objectProduct.inventoryId+`" name="`+objectProduct.productId+`" onclick=orderFunc(this.id,this.name)>Buy now</button>`;
+    Rating: `+objectProduct.productRating+`/5<br>Price:`+objectProduct.price+`<br>Quantity : `+objectProduct.quantity+`<br><button id="`+objectProduct.inventoryId+`" name="`+objectProduct.productId+`" onclick=orderFunc(this.id,this.name)>Buy now</button><br><button name="`+objectProduct.inventoryId+`" onclick=removeFunc(this.name) style="margin:2px;">Remove Item</button>`;
 
     document.getElementById("cartContainer").appendChild(div);
+}
+
+function removeFunc(inventoryId)
+{
+	var userId=sessionStorage.getItem('token');
+					callDeleteEndpoint("http://10.177.7.88:7000/cart/item/delete?token="+userId+"&id="+inventoryId,function(resCart){
+						console.log(resCart);
+						window.location='Cart.html';
+						debugger
+
+					});
 }
 
 
