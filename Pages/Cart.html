@@ -2,6 +2,9 @@
 <html>
 <head>
 	<style type="text/css">
+	.bottomCart{
+		text-align:center;
+	}
 	.cartCss{
 		background:none;
     border:none;
@@ -46,7 +49,7 @@
 <script src="../JS/helper.js"></script>
 	<title></title>
 </head>
-<body onload="javascript:yourFunction()">
+<body onload="javascript:yourFunction()" onready="clear()">
 	<header>
 				<!-- TOP HEADER -->
 				<div id="top-header">
@@ -130,6 +133,8 @@
   crossorigin="anonymous"></script>
   
 <script type="text/javascript">
+
+var quantityMap={};
 $(document).ready(function () {
 			if(sessionStorage.getItem("token")!=null){
 				document.getElementById("login").innerHTML=sessionStorage.getItem("token");
@@ -151,49 +156,103 @@ if(tokens=="guest@gmail.com")
 else
 {
      var url="http://10.177.7.88:7000/cart/get?token="+tokens;
-
+     var totalPrice=0;
         	fetchFromGetEndpoint(url,function(res){
 	            console.log(res);
 	          
 	           for(index in res.product){
-	           createCart(res.product[index]);
+	           	totalPrice=totalPrice+res.product[index].price*res.product[index].quantity;
+	            createCart(res.product[index]);
 	           }
-	       
+	           var div=document.createElement('div');
+	           div.className='bottomCart';
+	           sessionStorage.setItem('total',totalPrice);
+	           div.innerHTML=`<h3>Total is : `+totalPrice+`</h3><br><button onclick="myFunc()">Buy Now</button>`;	
+	           document.getElementById("cartContainer").appendChild(div);       
 	    	})	    	 
         }
+    }
+    function clear()
+		{
+			$(".bottomCart").remove();
+		}
+
+    function myFunc()
+    {
+    	window.location="order.html";
     }
 
 function createCart(objectProduct)
 {
+	quantityMap[objectProduct.inventoryId]=objectProduct.quantity;
+	console.log(objectProduct.inventoryId);
     var div = document.createElement('div');
     div.className = 'searchResult';
     div.innerHTML =	`<img src="`+objectProduct.imageSrc+ `" alt="nahi aya" width=100%> 
     <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
    
-    Rating: `+objectProduct.productRating+`/5<br>Price:`+objectProduct.price;
-        
+    Rating: `+objectProduct.productRating+`/5<br>Price:`+objectProduct.price+`<br>Quantity : `+objectProduct.quantity+`<br><button id="`+objectProduct.inventoryId+`" name="`+objectProduct.productId+`" onclick=orderFunc(this.id,this.name)>Buy now</button>`;
+
     document.getElementById("cartContainer").appendChild(div);
 }
 
 
-$('#searchForm').submit(function (e) {
-			var formObj = $(this);
-			var data = parseJQueryForm(formObj);
-			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
-			fetchFromGetEndpoint(url, function (res) {
-				console.log(res);
-				for (index in res) {
-					createProductCard(res[index]);
-				}
-			})
-			// AJAX Get Jquery statment
-			e.preventDefault();
-		});
-		$(document).ready(function () {
-			$("button").click(function () {
-				clearSearchResults()
-			});
-		});
+function orderFunc(inventoryId,productId)
+{
+	sessionStorage.setItem('inventoryId',inventoryId)
+	sessionStorage.setItem('productId',productId)
+	sessionStorage.setItem('quantity',quantityMap[inventoryId])
+
+	window.location="order.html"
+}
+
+
+	
+
+
+        $('#searchForm').submit(function(e) {
+        	clear();
+            var formObj = $(this);
+            var data = parseJQueryForm(formObj);
+            var url = "http://10.177.7.88:3000/search/all/" + data['query'];
+            fetchFromGetEndpoint(url, function(res) {
+                console.log(res);
+                clearProducts();
+                for (index in res) {
+                    createSearchCard(res[index]);
+                }
+            })
+            e.preventDefault();
+        });
+
+        function createSearchCard(objectProduct) {
+            var div = document.createElement('div');
+            div.className = 'searchResult';
+            div.innerHTML = `<a href="Product.html?id=` + objectProduct.productId + `"><img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+                objectProduct.productName + `</h2>
+    	Best Price: ` + objectProduct.bestPrice + `<br>
+    	Rating: ` +
+                objectProduct.rating + `/5 `;
+            document.getElementById('cartContainer').appendChild(div);
+
+        }
+
+        $(document).ready(function() {
+            $("button").click(function() {
+                clearSearchResults()
+            });
+        });
+
+        function clearSearchResults() {
+            $(".searchResult").remove();
+        }
+
+        function clearProducts() {
+            $(".productDiv1").remove();
+            $(".productDiv2").remove();
+        }
+
+
 
 
 

@@ -56,7 +56,7 @@
 
 </head>
 
-<body>
+<body onready="clear()">
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
@@ -84,6 +84,11 @@
 					</div>
 					<div class="col-md-4 clearfix">
 						<div class="header-ctn">
+							<div>
+								<a href="Landing.html">
+									Back to categories
+								</a>
+							</div>
 							<div>
 								<a href="#">
 									<i class="fa fa-heart-o"></i>
@@ -210,6 +215,10 @@
 
 	<script type="text/javascript">
 		//Search js
+		function clear()
+		{
+			document.body.innerHTML=``;
+		}
 		function clearSearchResults()
 		{
 			$(".searchResult").remove();
@@ -276,7 +285,7 @@
 				objectProduct.productName + `</h2>
     	Best Price: ` + objectProduct.bestPrice + `<br>
     	Rating: ` +
-				objectProduct.rating + `/5 `
+				objectProduct.productRating + `/5 `
 			document.getElementById('lowerHalf').appendChild(div);
 		}
 

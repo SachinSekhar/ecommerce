@@ -17,6 +17,14 @@ function fetchFromGetEndpoint(url, callback)
         success: callback
     });
 }
+function callDeleteEndpoint(url, callback)
+{
+	$.ajax({
+		url: url,
+        type: 'DELETE',
+        success: callback
+    });
+}
 function fetchFromGetEndpointSynced(url, callback)
 {
 	$.ajax({
