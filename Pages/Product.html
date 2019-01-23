@@ -153,6 +153,9 @@
         </div>
         <script type="text/javascript">
         //Elements for product page
+        
+
+
         function fetchProduct() {
             var productId = location.search.split('?id=')[1];
             var productURL = "http://10.177.7.88:4000/product/get/" + productId;
@@ -199,13 +202,19 @@
         function addToCart(merchantId, inventoryId) {
             var token = sessionStorage.getItem('token');
             var productId = location.search.split('?id=')[1];
-
+            var price=0;
             var urlProduct = "http://10.177.7.88:4000/product/get/" + productId;
             fetchFromGetEndpoint(urlProduct, function(res) {
                 var pname = res.productName;
                 var imgsrc = res.imageSrc[0];
                 var quantity = prompt("Please enter quantity");
-                var price = 0;
+                var urlInventory= "http://10.177.7.88:10000/inventory/get/" + inventoryId;
+                
+                fetchFromGetEndpointSynced(urlInventory, function(res) {
+                	price=res.price;
+                })
+                
+
                 var product = {
                     "inventoryId": inventoryId,
                     "productId": productId,
@@ -219,9 +228,12 @@
                     "token": token,
                     "product": product
                 }
+                console.log(json)
+                
+
                 var urlAddToCart = "http://10.177.7.88:7000/cart/item/add";
                 submitPostForm(urlAddToCart, json, function(res) {
-                    console.log(res);
+                    // console.log(res);
                 })
 
                 // window.location="Landing.html";

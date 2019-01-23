@@ -17,6 +17,16 @@ function fetchFromGetEndpoint(url, callback)
         success: callback
     });
 }
+function fetchFromGetEndpointSynced(url, callback)
+{
+	$.ajax({
+		url: url,
+        type: 'GET',
+        success: callback,
+        async : false
+
+    });
+}
 
 function sendToPostEndPoint(url,callback)
 {
