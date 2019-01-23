@@ -124,7 +124,6 @@
 <script type="text/javascript">
 
 function yourFunction(){
-	debugger;
  var tokens=sessionStorage.getItem('token');
 
 if(tokens=="guest@gmail.com")
@@ -136,7 +135,7 @@ if(tokens=="guest@gmail.com")
 }
 else
 {
-     var url="http://localhost:8000/cart/select?token="+tokens;
+     var url="http://10.177.7.88:7000/cart/get?token="+tokens;
 
         	fetchFromGetEndpoint(url,function(res){
 	            console.log(res);
@@ -151,17 +150,12 @@ else
 
 function createCart(objectProduct)
 {
-// 	$(document).ready(function(){
-//   $("button").click(function(){
-//     $(".searchResult").remove();
-//   });
-// });
     var div = document.createElement('div');
     div.className = 'searchResult';
-    div.innerHTML =	`<img src="`+objectProduct.imageUrl+ `" alt="nahi aya" width=100%> 
+    div.innerHTML =	`<img src="`+objectProduct.imageSrc+ `" alt="nahi aya" width=100%> 
     <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
    
-    Rating: `+objectProduct.productRating+`/5`
+    Rating: `+objectProduct.productRating+`/5<br>Price:`+objectProduct.price;
         
     document.getElementById("cartContainer").appendChild(div);
 }
@@ -171,7 +165,6 @@ $('#searchForm').submit(function (e) {
 			var formObj = $(this);
 			var data = parseJQueryForm(formObj);
 			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
-			// debugger
 			fetchFromGetEndpoint(url, function (res) {
 				console.log(res);
 				for (index in res) {
@@ -190,7 +183,7 @@ $('#searchForm').submit(function (e) {
 
 
 function signoutFunc()
-{debugger;
+{
 		sessionStorage.setItem('token','guest@gmail.com')
 
   var div = document.createElement('div');

@@ -176,6 +176,23 @@
 
 	</div>
 	<script type="text/javascript">
+		//Search js
+		function clearSearchResults()
+		{
+			$(".searchResult").remove();
+		}
+		function createSearchCard(objectProduct){
+			var div = document.createElement('div');
+			div.className = 'searchResult';
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+				objectProduct.productName + `</h2>
+    	Best Price: ` + objectProduct.bestPrice + `<br>
+    	Rating: ` +
+				objectProduct.rating + `/5 `
+			document.getElementById('lowerHalf').appendChild(div);
+
+		}
+
 		$('#searchForm').submit(function (e) {
 			var formObj = $(this);
 			var data = parseJQueryForm(formObj);
@@ -183,7 +200,7 @@
 			fetchFromGetEndpoint(url, function (res) {
 				console.log(res);
 				for (index in res) {
-					createProductCard(res[index]);
+					createSearchCard(res[index]);
 				}
 			})
 			e.preventDefault();
@@ -193,13 +210,13 @@
 				clearSearchResults()
 			});
 		});
-		function clearSearchResults()
-		{
-			$(".searchResult").remove();
-		}
+		//Search js ends here
+		
+
+		//Display products by category
 		$(".categoryBox").on('click', function (e) {
 			var category=$(this).attr('value')
-			var urlCategory="http://10.177.7.88:3000/product/category/"+category;
+			var urlCategory="http://10.177.7.88:4000/product/category/"+category;
 			fetchFromGetEndpoint(urlCategory,function(res){
 							console.log(res);
 
@@ -211,18 +228,20 @@
 			e.preventDefault();
 		});
 
+		
 		function createProductCard(objectProduct) {
-			console.log(objectProduct.imageSrc[0]);
-			
+
 			var div = document.createElement('div');
 			div.className = 'searchResult';
-			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc[0]+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
 				objectProduct.productName + `</h2>
     	Best Price: ` + objectProduct.bestPrice + `<br>
     	Rating: ` +
 				objectProduct.rating + `/5 `
 			document.getElementById('lowerHalf').appendChild(div);
 		}
+
+		//Ends here
 	</script>
 </body>
 

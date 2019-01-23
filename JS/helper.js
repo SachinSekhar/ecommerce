@@ -17,6 +17,16 @@ function fetchFromGetEndpoint(url, callback)
         success: callback
     });
 }
+
+function sendToPostEndPoint(url,callback)
+{
+	$.ajax({
+		url:url,
+		type:'POST',
+		success: callback
+	});
+}
+
 function parseJQueryForm(jQueryForm)
 {
 	var obj={};
