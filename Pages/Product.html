@@ -28,7 +28,7 @@
 		.productDiv1{
 			width: 23%;
 			border: 1px solid white;
-			height: 20%;
+			height: 17%;
 			color: black;
 			display: inline-block;
 			padding: 1em;
@@ -156,14 +156,13 @@
 
 	</div>
 <script type="text/javascript">
+
 	function fetchProduct()
 	{
 		var productId=location.search.split('?id=')[1];
-		console.log(productId);
-		var productURL="http://10.177.7.88:5000/product/get/"+productId;
+		var productURL="http://10.177.7.88:4000/product/get/"+productId;
 		console.log(productURL);
 		fetchFromGetEndpoint(productURL,function(res){
-			console.log(res);
 			createProductDiv(res);
 		})
 	}
@@ -172,7 +171,7 @@
 		$('#searchForm').submit(function (e) {
 			var formObj = $(this);
 			var data = parseJQueryForm(formObj);
-			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
+			var url = "http://10.177.7.88:3000/search/all/" + data['query'];
 			fetchFromGetEndpoint(url, function (res) {
 				console.log(res);
 				for (index in res) {
@@ -191,17 +190,25 @@
     	Rating: ` +
 				objectProduct.rating + `/5 <br>`+objectProduct.description;
 			document.getElementById('lowerHalf').appendChild(spanProduct);
-			var spanProduct1=document.createElement('span');
-			spanProduct1.className='productDiv1';
-			spanProduct1.innerHTML = `<img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
-				objectProduct.productName + `</h2>
-    	Best Price: ` + objectProduct.bestPrice + `<br>
-    	Rating: ` +
-				objectProduct.rating + `/5 <br>`+objectProduct.description;
-			document.getElementById('lowerHalf').appendChild(spanProduct1);
 			
-
+			var urlInventory="http://10.177.7.88:12000/inventory/"+objectProduct.productId;
+			fetchFromGetEndpoint(urlInventory, function (res) {
+				createMerchantList(res);
+			})
 		}
+
+		function createMerchantList(objectMerchant){
+			console.log(objectMerchant);
+			var spanProduct2=document.createElement('span');
+			spanProduct2.className='productDiv1';
+			spanProduct2.innerHTML = `<h2>`+objectMerchant[0].merchantId+`</h2>`
+			document.getElementById('lowerHalf').appendChild(spanProduct2);
+			var spanProduct3=document.createElement('span');
+			spanProduct3.className='productDiv1';
+			spanProduct3.innerHTML = `<h2>`+objectMerchant[1].merchantId+`</h2>`
+			document.getElementById('lowerHalf').appendChild(spanProduct3);
+		}
+
 		$(document).ready(function () {
 			$("button").click(function () {
 				clearSearchResults()

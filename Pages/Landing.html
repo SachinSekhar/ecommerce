@@ -179,7 +179,7 @@
 		$('#searchForm').submit(function (e) {
 			var formObj = $(this);
 			var data = parseJQueryForm(formObj);
-			var url = "http://10.177.7.88:7000/search/all/" + data['query'];
+			var url = "http://10.177.7.88:3000/search/all/" + data['query'];
 			fetchFromGetEndpoint(url, function (res) {
 				console.log(res);
 				for (index in res) {
@@ -199,7 +199,7 @@
 		}
 		$(".categoryBox").on('click', function (e) {
 			var category=$(this).attr('value')
-			var urlCategory="http://10.177.7.88:5000/product/category/"+category;
+			var urlCategory="http://10.177.7.88:3000/product/category/"+category;
 			fetchFromGetEndpoint(urlCategory,function(res){
 							console.log(res);
 

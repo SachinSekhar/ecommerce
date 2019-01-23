@@ -50,7 +50,7 @@
       <div style="align:center; padding-left:40%; font-size:30px;">Already have an account?<a href="Login.html">login.</a></div>
    <script type="text/javascript">
     $('#signupForm').submit(function (e) {
-      var url="http://10.177.7.88:4000/auth/register";
+      var url="http://10.177.7.88:8000/auth/signup";
       var formObj=$(this);
       var data=parseJQueryForm(formObj);
       submitPostForm(url,data,function(res){
