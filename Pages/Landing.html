@@ -49,7 +49,7 @@
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css" />
-	<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releasehttp://s/v5.0.7/css/all.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	 crossorigin="anonymous"></script>
 	<script src="../JS/helper.js"></script>
@@ -127,43 +127,43 @@
 	</header>
 	<!-- /HEADER -->
 <!-- <div style="height: 100px; width: 200px">
-				<a href="#" alt="image"><img src="../Assets/iphone/iphone 7+ (2).jpeg"></a>
+				<a href="#" alt="image"><img src="http://10.177.7.88/category/http://iphone 7+ (2).jpg"></a>
 				<p style="font-weight: bold">Phones</p>
 			</div> -->
 	<div class="row cate" style="padding-left: 30px">
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Electronics">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/electronics.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Electronics</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Phones">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/phone.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Phones</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Phone Accessories">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/phone_accessories.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Phone Accessories</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Furniture">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/furniture.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Funiture</p>
 			</div>
 		</div>
 		<br>
 		<div class="row cate" style="padding-left: 30px">
 			<div class="categoryBox col-md-3 searchResult"style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Watches">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/watches.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Watches</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Clothing">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/clothing.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Clothing</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Shoes">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/shoes.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Shoes</p>
 			</div>
 			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Jewellery">
- 				 <img src="../Assets/iphone/iphone 7+ (2).jpeg" alt="Avatar" style=" width:100%">
+ 				 <img src="http://10.177.7.88/category/jewellery.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Jewellery</p>
 			</div>
 		</div>
@@ -238,7 +238,7 @@
 		$('#searchForm').submit(function (e) {
 			var formObj = $(this);
 			var data = parseJQueryForm(formObj);
-			var url = "http://10.177.7.88:3000/search/all/" + data['query'];
+			var url = "http:/http://10.177.7.88:3000/search/all/" + data['query'];
 			fetchFromGetEndpoint(url, function (res) {
 				console.log(res);
 				for (index in res) {
@@ -264,7 +264,7 @@
 		//Display products by category
 		$(".categoryBox").on('click', function (e) {
 			var category=$(this).attr('value')
-			var urlCategory="http://10.177.7.88:4000/product/category/"+category;
+			var urlCategory="http:/http://10.177.7.88:4000/product/category/"+category;
 			fetchFromGetEndpoint(urlCategory,function(res){
 							console.log(res);
 
