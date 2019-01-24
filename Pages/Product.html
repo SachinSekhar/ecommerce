@@ -111,11 +111,10 @@
 								</a>
                             </div>
                             <div>
-                                <a href="#">
-									<i class="fa fa-heart-o"></i>
-									<span>Your Wishlist</span>
-									<!-- <div class="qty">2</div> -->
-								</a>
+                                <a href="OrderHistory.html">
+                                    <i class="fa fa-heart-o"></i>
+                                    <span>Your Profile</span>
+                                </a>
                             </div>
                             <!-- /Wishlist -->
                             <!-- Cart -->
@@ -153,6 +152,17 @@
         </div>
         <script type="text/javascript">
         //Elements for product page
+        $(document).ready(function () {
+            if(sessionStorage.getItem("token")!=null && sessionStorage.getItem('token')!="guest@gmail.com"){
+                document.getElementById("login").innerHTML=sessionStorage.getItem("token");
+                document.getElementById('signup').innerHTML="LogOut";
+                $("#login").attr("href", "javascript:void(0");
+                document.getElementById("signup").href="Login.html";
+            }
+            $("button").click(function () {
+                clearSearchResults()
+            });
+        });
         function clear()
         {
             document.body.innerHTML=``;
@@ -249,7 +259,7 @@
 
 
         $('#searchForm').submit(function(e) {
-            
+
             var formObj = $(this);
             var data = parseJQueryForm(formObj);
             var url = "http://10.177.7.88:3000/search/all/" + data['query'];
@@ -264,14 +274,18 @@
         });
 
         function createSearchCard(objectProduct) {
+                        if(objectProduct.outOfStock){
+                var div = document.createElement('div');
+            div.className = 'searchResult';
+            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName  + `</h2> Out of Stock`;
+            document.getElementById('lowerHalf').appendChild(div);
+            }
+                else{
             var div = document.createElement('div');
             div.className = 'searchResult';
-            div.innerHTML = `<a href="Product.html?id=` + objectProduct.productId + `"><img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
-                objectProduct.productName + `</h2>
-    	Best Price: ` + objectProduct.bestPrice + `<br>
-    	Rating: ` +
-                objectProduct.rating + `/5 `
+            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName + `</h2> Best Price: ` +objectProduct.bestPrice + `<br> Rating: ` +objectProduct.productRating + `/5 `;
             document.getElementById('lowerHalf').appendChild(div);
+        }
 
         }
 
@@ -291,5 +305,6 @@
         }
         </script>
     </body>
+    
 
     </html>

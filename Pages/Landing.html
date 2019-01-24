@@ -90,9 +90,9 @@
 								</a>
 							</div>
 							<div>
-								<a href="#">
+								<a href="OrderHistory.html">
 									<i class="fa fa-heart-o"></i>
-									<span>Your Wishlist</span>
+									<span>Your Profile</span>
 								</a>
 							</div>
 							<!-- /Wishlist -->
@@ -139,7 +139,7 @@
  				 <img src="http://10.177.7.88/category/phone.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Phones</p>
 			</div>
-			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Phone Accessories">
+			<div class="categoryBox col-md-3 searchResult" style="height: 23%;width: 23%; border:2px solid orange; margin: 5px " value="Phone_Accessories">
  				 <img src="http://10.177.7.88/category/phone_accessories.jpg" alt="Avatar" style=" width:100%">
    				 <p style="font-size:30px; text-align: center;">Phone Accessories</p>
 			</div>
@@ -186,9 +186,9 @@
 								<h3 class="footer-title">About Us</h3>
 								<p>Coviam Dukaan </p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>HSR Layout Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+34335435353</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>coviam@email.com</a></li>
+									<li><a href="https://goo.gl/maps/LiYrU4nTqoq"><i class="fa fa-map-marker"></i>HSR Layout Road</a></li>
+									<li><a href="tel:121"><i class="fa fa-phone"></i>+34335435353</a></li>
+									<li><a href="mailto:sach.sekh.131997@gmail.com?subject=Dukaan.com%20Customer%20Query"><i class="fa fa-envelope-o"></i>coviam@email.com</a></li>
 								</ul>
 							</div>
 						</div>
@@ -196,11 +196,9 @@
 							<div class="footer">
 								<h3 class="footer-title">Service</h3>
 								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
+									<li><a href="Landing.html">My Account</a></li>
 									<li><a href="cart.html">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<!-- <li><a href="#">Track My Order</a></li> -->
-									<li><a href="#">Help</a></li>
+									
 								</ul>
 							</div>
 						</div>
@@ -224,21 +222,26 @@
 			$(".searchResult").remove();
 		}
 		function createSearchCard(objectProduct){
+			
+			if(objectProduct.outOfStock){
+				var div = document.createElement('div');
+			div.className = 'searchResult';
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName  + `</h2> Out of Stock`;
+			document.getElementById('lowerHalf').appendChild(div);
+			}
+				else{
 			var div = document.createElement('div');
 			div.className = 'searchResult';
-			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
-				objectProduct.productName + `</h2>
-    	Best Price: ` + objectProduct.bestPrice + `<br>
-    	Rating: ` +
-				objectProduct.rating + `/5 `
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName + `</h2> Best Price: ` +objectProduct.bestPrice + `<br> Rating: ` +objectProduct.productRating + `/5 `;
 			document.getElementById('lowerHalf').appendChild(div);
+		}
 
 		}
 
 		$('#searchForm').submit(function (e) {
 			var formObj = $(this);
 			var data = parseJQueryForm(formObj);
-			var url = "http:/http://10.177.7.88:3000/search/all/" + data['query'];
+			var url = "http://10.177.7.88:3000/search/all/" + data['query'];
 			fetchFromGetEndpoint(url, function (res) {
 				console.log(res);
 				for (index in res) {
@@ -248,7 +251,7 @@
 			e.preventDefault();
 		});
 		$(document).ready(function () {
-			if(sessionStorage.getItem("token")!=null){
+			if(sessionStorage.getItem("token")!=null && sessionStorage.getItem('token')!="guest@gmail.com"){
 				document.getElementById("login").innerHTML=sessionStorage.getItem("token");
 				document.getElementById('signup').innerHTML="LogOut";
 				$("#login").attr("href", "javascript:void(0");
@@ -264,7 +267,7 @@
 		//Display products by category
 		$(".categoryBox").on('click', function (e) {
 			var category=$(this).attr('value')
-			var urlCategory="http:/http://10.177.7.88:4000/product/category/"+category;
+			var urlCategory="http://10.177.7.88:4000/product/category/"+category;
 			fetchFromGetEndpoint(urlCategory,function(res){
 							console.log(res);
 
@@ -278,8 +281,15 @@
 
 		
 		function createProductCard(objectProduct) {
-
-			var div = document.createElement('div');
+			console.log(objectProduct)
+			if(objectProduct.outOfStock){
+				var div = document.createElement('div');
+			div.className = 'searchResult';
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName  + `</h2> Out of Stock`;
+			document.getElementById('lowerHalf').appendChild(div);
+			}
+			else{
+				var div = document.createElement('div');
 			div.className = 'searchResult';
 			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc[0]+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
 				objectProduct.productName + `</h2>
@@ -287,6 +297,9 @@
     	Rating: ` +
 				objectProduct.productRating + `/5 `
 			document.getElementById('lowerHalf').appendChild(div);
+			}
+
+			
 		}
 
 		//Ends here

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title></title>
 	<style type="text/css">
 		.searchResult {
 			width: 23%;
@@ -14,22 +15,6 @@
 			box-sizing: border-box;
 			align-items: center;
 			border-radius: 7px;
-		}
-
-		.addressResult{
-			width: 23%;
-			border: 1px solid white;
-			height: 20%;
-			color: black;
-			display: inline-block;
-			padding: 1em;
-			margin: 10px;
-			background-color: white;
-			box-sizing: border-box;
-			align-items: center;
-			border-radius: 7px;
-			font-size: 20px;
-
 		}
 
 		.card {
@@ -50,14 +35,6 @@
 		.container {
 			padding: 2px 16px;
 		}
-
-		.totalClass{
-			display: inline-block;
-			font-size: 20px;
-			text-align:center;
-			font-size: 40px;
-
-		}
 	</style>
 
 	<title>Ecommerece Project</title>
@@ -72,13 +49,11 @@
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
 	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css" />
-	<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+	<link href="https://use.fontawesome.com/releasehttp://s/v5.0.7/css/all.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	 crossorigin="anonymous"></script>
 	<script src="../JS/helper.js"></script>
-
-</head>
-<body onload="myfunc()" onready="clear()">
+	<body onready="clear()" >
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
@@ -111,12 +86,7 @@
 									Back to categories
 								</a>
 							</div>
-							<div>
-								<a href="OrderHistory.html">
-									<i class="fa fa-heart-o"></i>
-									<span>Your Profile</span>
-								</a>
-							</div>
+							
 							<!-- /Wishlist -->
 
 							<!-- Cart -->
@@ -147,21 +117,111 @@
 		</div>
 		<!-- /MAIN HEADER -->
 	</header>
-	<div id="orderContents" style="text-align:center; font-size: 40px">
-		<br><span class="searchClass" style="display:inline-block;">Your total is :</h1>
+</head>
+<body>
+	<div id="lowerHalf" style="padding: 10px;margin:5px;display: inline-block;">
+		
 	</div>
-<p style="font-size:20px">Deliver to : </p>
-	<div id="addressForm">
-			<button name="mysubmit" value="Submit" onclick='orderfunc();'>PLACE ORDER</button>
-	</div> 
+	<div class="result">
+
+</div>
+
+</body>
+<script type="text/javascript">
+		function clear()
+		{
+			document.body.innerHTML=``;
+		}
+		function clearSearchResults()
+		{
+			$(".searchResult").remove();
+		}
 
 
+		$('#searchForm').submit(function (e) {
+			var formObj = $(this);
+			var data = parseJQueryForm(formObj);
+			var url = "http://10.177.7.88:3000/search/all/" + data['query'];
+			$("#lowerHalf").remove();
+			fetchFromGetEndpoint(url, function (res) {
+				console.log(res);
+				for (index in res) {
+					createSearchCard(res[index]);
+				}
+			})
+			e.preventDefault();
+		});
+		
+			function createSearchCard(objectProduct) {
+                        if(objectProduct.outOfStock){
+                var div = document.createElement('div');
+            div.className = 'searchResult';
+            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName  + `</h2> Out of Stock`;
+            document.getElementById('lowerHalf').appendChild(div);
+            }
+                else{
+            var div = document.createElement('div');
+            div.className = 'searchResult';
+            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName + `</h2> Best Price: ` +objectProduct.bestPrice + `<br> Rating: ` +objectProduct.productRating + `/5 `;
+            document.getElementById('result').appendChild(div);
+        }
 
+        }
 
+		
 
+		
+		$(document).ready(function () {
+			if(sessionStorage.getItem("token")!=null && sessionStorage.getItem('token')!="guest@gmail.com"){
+				document.getElementById("login").innerHTML=sessionStorage.getItem("token");
+				document.getElementById('signup').innerHTML="LogOut";
+				$("#login").attr("href", "javascript:void(0");
+				document.getElementById("signup").href="Login.html";
+			}
+			$("button").click(function () {
+				clearSearchResults()
+			});
+		});
+		$(document).ready(function (){
+			var token=sessionStorage.getItem('token');
+			if(token!="guest@gmail.com"){
+			var urlName="http://10.177.7.88:8000/auth/find?emailId="+token;
+			fetchFromGetEndpoint(urlName,function(res){
+				var div=document.createElement('div');
+				div.className="Details box";
+				div.innerHTML=`<h3>Email ID :`+res.emailId+`<br>Name : `+res.firstName+` `+res.lastName+`<br>Registered Number : `+res.phoneNumber+`</h3>`;
+				document.getElementById('lowerHalf').appendChild(div);
+			});
+			var urlOrder="http://10.177.7.88:13000/order/customer/get?token="+token;
 
+			fetchFromGetEndpoint(urlOrder,function(res){
+				console.log(res);
+				for(index in res)
+				{
+					createOrderCard(res[index])
+				}
 
-		<footer id="footer">
+			});
+			function createOrderCard(objectOrder)
+			{
+				var date=new Date(objectOrder.date);
+				var div=document.createElement('div');
+				div.innerHTML=`<br><h4>Delivery Address : `+objectOrder.address+`<br>Payment via :`+objectOrder.modeOfPayment+`<br>Amount to be paid at delivery : `+(objectOrder.quantity*objectOrder.price)+`<br> Order placed on : `+date.toString("dd mm yyyy")+`</h4>`;
+				document.getElementById('lowerHalf').appendChild(div);
+			}
+		}
+		else
+		{
+			var div=document.createElement('div');
+				div.className="Details box";
+				div.innerHTML=`<h2>Please <a href="login.html">Login</a> to see your profile</h2>`;
+				document.getElementById('lowerHalf').appendChild(div);
+
+		}
+		});
+</script>
+</body>
+	<footer id="footer">
 			<!-- top footer -->
 			<div class="section">
 				<!-- container -->
@@ -198,66 +258,5 @@
 		</footer>
 		<!-- /FOOTER -->
 
-		<script>
 
-			function orderfunc(){
-				var userId=sessionStorage.getItem('token');
-				var inventoryId=sessionStorage.getItem('inventoryId');
-				var productId=sessionStorage.getItem('productId');
-				var quantity=sessionStorage.getItem('quantity');
-				var address=document.getElementById("textAddress").value;
-				console.log(inventoryId)
-				console.log(productId)
-				console.log(quantity)
-				console.log(address)
-
-				var orderDTO={}
-				orderDTO['customerId']=userId;
-				orderDTO['inventoryId']=inventoryId;
-				orderDTO['productId']=productId;
-				orderDTO['quantity']=parseInt(quantity);
-				orderDTO['address']=address;
-
-				submitPostForm("http://10.177.7.88:13000/order/new",orderDTO,function(res){
-					if(res.status=="INITIALIZED")
-					callDeleteEndpoint("http://10.177.7.88:7000/cart/item/delete?token="+userId+"&id="+inventoryId,function(resCart){
-						console.log(resCart);
-						sessionStorage.removeItem('inventoryId');
-						sessionStorage.removeItem('productId');
-						sessionStorage.removeItem('quantity');
-						window.location='Cart.html';
-						debugger
-
-					});
-
-				});
-				return false;
-			}
-			function clear()
-		{
-			document.body.innerHTML=``;
-		}
-			function myfunc(){
-				var totalAmount = document.createElement('span');
-				totalAmount.className='totalClass';
-				var tot=sessionStorage.getItem('total');
-				console.log(tot);
-				totalAmount.innerHTML=tot;
-				document.getElementById('orderContents').appendChild(totalAmount);
-				loadAddress();
-
-			}
-
-			function loadAddress()
-			{
-				var div=document.createElement('div');
-				div.className='addressResult';
-				div.innerHTML=`<textarea rows="2" cols="30" id="textAddress" placeholder="Enter your address here" rows="5" cols="30"></textarea>`;
-				document.getElementById('addressForm').appendChild(div);
-			}
-			
-
-		</script>
-
-</body>
 </html>

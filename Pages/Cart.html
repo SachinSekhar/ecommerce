@@ -1,339 +1,428 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<style type="text/css">
-	.bottomCart{
-		text-align:center;
-	}
-	.cartCss{
-		background:none;
-    border:none;
-    margin:0;
-    padding:0;
-    cursor: pointer;
-	}
-	.newClass{
-	
+    <style type="text/css">
+    .bottomCart {
+        text-align: center;
+    }
 
-	}
-		.searchResult{
-	
-	
-	width : 23%;
-	border: 1px solid white;
-	height: 20%;
-	color:black;
-	display: inline-block;
-	padding:1em;
-	margin : 10px;
-	background-color: white;
-	box-sizing: border-box;
-	align-items: center;
-	border-radius: 7px;
-}
-	</style>
-	 <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	  		  <meta charset="utf-8">
-			<title>Ecommerce project</title>
-			<link rel="stylesheet" type="text/css" href="../CSS/landing.css">
-			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    .cartCss {
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+    }
 
-			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
-			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
-			<!-- nouislider -->
-			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css"/>
-			<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-<script src="../JS/helper.js"></script>
-	<title></title>
+    .newClass {}
+
+    .searchResult {
+
+
+        width: 23%;
+        border: 1px solid white;
+        height: 20%;
+        color: black;
+        display: inline-block;
+        padding: 1em;
+        margin: 10px;
+        background-color: white;
+        box-sizing: border-box;
+        align-items: center;
+        border-radius: 7px;
+    }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Ecommerce project</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/landing.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css" />
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <script src="../JS/helper.js"></script>
+    <title></title>
 </head>
-<body onload="javascript:yourFunction()" onready="clear()">
-	<header>
-				<!-- TOP HEADER -->
-				<div id="top-header">
-					<div class="container">
-						<ul class="header-links pull-right">
-							<li><a href="Landing.html"><h1 style="color:black">DUKAAN.COM</h1></a></li>
-							<li><a href="Login.html" id="login" style="font-size: 20px; color:black">Login</a></li>
-							<li><a href="Signup.html" id="signup" style="font-size: 20px;color:black">Signup</a></li>
-							<!-- <li><button class="btn btn-info btn-lg button" onclick="signoutFunc()">SIGNOUT</button></li> -->
 
-						</ul>
-					</div>
-				</div>
-				<div id="header">
-					<!-- container -->
-					<div class="container">
-						<!-- row -->
-						<div class="row">
-							
-							<div class="col-md-8">
-								<div class="header-search">
-									<form id="searchForm">
-										
-										<input type="text" class="input" placeholder="Search here" name="query">
-										<button class="search-btn button" id="searchButton">Search</button>
-									</form>
-								</div>
-							</div>
-							<!-- /SEARCH BAR -->
-
-							<!-- ACCOUNT -->
-							<div class="col-md-4 clearfix">
-								<div class="header-ctn">
-									<div>
-                               			<a href="Landing.html">
+<body onload="yourFunction()" onready="clear()">
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-right">
+                    <li><a href="Landing.html"><h1 style="color:black">DUKAAN.COM</h1></a></li>
+                    <li><a href="Login.html" id="login" style="font-size: 20px; color:black">Login</a></li>
+                    <li><a href="Signup.html" id="signup" style="font-size: 20px;color:black">Signup</a></li>
+                    <!-- <li><button class="btn btn-info btn-lg button" onclick="signoutFunc()">SIGNOUT</button></li> -->
+                </ul>
+            </div>
+        </div>
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="header-search">
+                            <form id="searchForm">
+                                <input type="text" class="input" placeholder="Search here" name="query">
+                                <button class="search-btn button" id="searchButton">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /SEARCH BAR -->
+                    <!-- ACCOUNT -->
+                    <div class="col-md-4 clearfix">
+                        <div class="header-ctn">
+                            <div>
+                                <a href="Landing.html">
 											<i class="fa fa-heart-o"></i>
 											<span> Back to Categories </span>
 										</a>
-                           			 </div>
-									<!-- Wishlist -->
-									<div>
-										<a href="#">
-											<i class="fa fa-heart-o"></i>
-											<span>Your Wishlist</span>
-											<!-- <div class="qty">2</div> -->
-										</a>
-									</div>
-									
-									<div class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            </div>
+                            <!-- Wishlist -->
+                            <div>
+                                <a href="OrderHistory.html">
+		                                    <i class="fa fa-heart-o"></i>
+		                                    <span>Your Profile</span>
+		                                </a>
+                            </div>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 											<i class="fa fa-shopping-cart"></i>
 											<span>
 												<input type=button class="cartCss" onClick="parent.location='cart.html'" value='cart'>
 											</span>
 											
 										</a>
-									</div>
-									
-									<div class="menu-toggle">
-										<a href="#">
+                            </div>
+                            <div class="menu-toggle">
+                                <a href="#">
 											<i class="fa fa-bars"></i>
 											<span>Menu</span>
 										</a>
-									</div>
-									<!-- /Menu Toogle -->
-								</div>
-							</div>
-							<!-- /ACCOUNT -->
-						</div>
-						<!-- row -->
-					</div>
-					<!-- container -->
-				</div>
-				<!-- /MAIN HEADER -->
-			</header>
-			<!-- /HEADER -->
-<div id="cartContainer"></div>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  
-<script type="text/javascript">
+                            </div>
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+    <div id="userContainer"> </div>
+    <div id="cartContainer"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    var quantityMap = {};
+    var productIdMap = {};
+    var priceMap = {};
 
-var quantityMap={};
-$(document).ready(function () {
-			if(sessionStorage.getItem("token")!=null){
-				document.getElementById("login").innerHTML=sessionStorage.getItem("token");
-				document.getElementById('signup').innerHTML="LogOut";
-				$("#login").attr("href", "javascript:void(0");
-				document.getElementById("signup").href="Login.html";
-			}
-		});
-function yourFunction(){
- var tokens=sessionStorage.getItem('token');
-
-if(tokens=="guest@gmail.com")
-{
-	 var div=document.createElement('div');
-    div.className = 'newClass';
-    div.innerHTML =	`<h1>Please <a href="Login.html"> Login </a> to see your Cart!`;
-    document.getElementById("cartContainer").appendChild(div);
-}
-else
-{
-     var url="http://10.177.7.88:7000/cart/get?token="+tokens;
-     var totalPrice=0;
-        	fetchFromGetEndpoint(url,function(res){
-	            console.log(res);
-	          
-	           for(index in res.product){
-	           	totalPrice=totalPrice+res.product[index].price*res.product[index].quantity;
-	            createCart(res.product[index]);
-	           }
-	           var div=document.createElement('div');
-	           div.className='bottomCart';
-	           sessionStorage.setItem('total',totalPrice);
-	           div.innerHTML=`<h3>Total is : `+totalPrice+`</h3>`;	
-	           document.getElementById("cartContainer").appendChild(div);       
-	    	})	    	 
+    $(document).ready(function() {
+        if (sessionStorage.getItem("token") != null && sessionStorage.getItem('token') != "guest@gmail.com") {
+            document.getElementById("login").innerHTML = sessionStorage.getItem("token");
+            document.getElementById('signup').innerHTML = "LogOut";
+            $("#login").attr("href", "javascript:void(0");
+            document.getElementById("signup").href = "Login.html";
         }
-    }
-    function clear()
-		{
-			$(".bottomCart").remove();
-		}
-
-    function myFunc()
-    {
-    	window.location="order.html";
-    }
-
-function createCart(objectProduct)
-{
-	quantityMap[objectProduct.inventoryId]=objectProduct.quantity;
-	console.log(objectProduct.inventoryId);
-    var div = document.createElement('div');
-    div.className = 'searchResult';
-    div.innerHTML =	`<img src="`+objectProduct.imageSrc+ `" alt="nahi aya" width=100%> 
-    <h2 style="align-items:center">`+ objectProduct.productName+`</h2>
-   
-    Rating: `+objectProduct.productRating+`/5<br>Price:`+objectProduct.price+`<br>Quantity : `+objectProduct.quantity+`<br><button id="`+objectProduct.inventoryId+`" name="`+objectProduct.productId+`" onclick=orderFunc(this.id,this.name)>Buy now</button><br><button name="`+objectProduct.inventoryId+`" onclick=removeFunc(this.name) style="margin:2px;">Remove Item</button>`;
-
-    document.getElementById("cartContainer").appendChild(div);
-}
-
-function removeFunc(inventoryId)
-{
-	var userId=sessionStorage.getItem('token');
-					callDeleteEndpoint("http://10.177.7.88:7000/cart/item/delete?token="+userId+"&id="+inventoryId,function(resCart){
-						console.log(resCart);
-						window.location='Cart.html';
-						debugger
-
-					});
-}
+        $("button").click(function() {
+            clearSearchResults()
+        });
+    });
 
 
-function orderFunc(inventoryId,productId)
-{
-	sessionStorage.setItem('inventoryId',inventoryId)
-	sessionStorage.setItem('productId',productId)
-	sessionStorage.setItem('quantity',quantityMap[inventoryId])
+    function yourFunction() {
+        var tokens = sessionStorage.getItem('token');
+        console.log(tokens)
 
-	window.location="order.html"
-}
-
-
-	
-
-
-        $('#searchForm').submit(function(e) {
-        	clear();
-            var formObj = $(this);
-            var data = parseJQueryForm(formObj);
-            var url = "http://10.177.7.88:3000/search/all/" + data['query'];
+        if (tokens == "guest@gmail.com") {
+            var div = document.createElement('div');
+            div.className = 'newClass';
+            div.innerHTML = `<h1>Please <a href="Login.html"> Login </a> to see your Cart!`;
+            document.getElementById("cartContainer").appendChild(div);
+        } else {
+            var url = "http://10.177.7.88:7000/cart/get?token=" + tokens;
+            var totalPrice = 0;
             fetchFromGetEndpoint(url, function(res) {
                 console.log(res);
-                clearProducts();
-                for (index in res) {
-                    createSearchCard(res[index]);
-                }
-            })
-            e.preventDefault();
-        });
 
-        function createSearchCard(objectProduct) {
+                for (index in res.product) {
+                    totalPrice = totalPrice + res.product[index].price * res.product[index].quantity;
+                    createCart(res.product[index]);
+                }
+                var div = document.createElement('div');
+                div.className = 'bottomCart';
+                sessionStorage.setItem('total', totalPrice);
+                div.innerHTML = `<h3>Total is : ` + totalPrice + `</h3>`;
+                document.getElementById("userContainer").appendChild(div);
+            })
+        }
+        var myNode = document.getElementById("userContainer");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+    }
+
+    function clear() {
+        $(".bottomCart").remove();
+    }
+
+    function myFunc() {
+        window.location = "order.html";
+    }
+
+    function createCart(objectProduct) {
+        var token = sessionStorage.getItem('token');
+        if (token != "guest@gmail.com") {
+            quantityMap[objectProduct.inventoryId] = objectProduct.quantity;
+            console.log(objectProduct.inventoryId);
+            productIdMap[objectProduct.inventoryId] = objectProduct.productId;
+            priceMap[objectProduct.inventoryId] = objectProduct.price;
             var div = document.createElement('div');
             div.className = 'searchResult';
-            div.innerHTML = `<a href="Product.html?id=` + objectProduct.productId + `"><img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
-                objectProduct.productName + `</h2>
-    	Best Price: ` + objectProduct.bestPrice + `<br>
-    	Rating: ` +
-                objectProduct.rating + `/5 `;
-            document.getElementById('cartContainer').appendChild(div);
+            div.innerHTML = `<img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> 
+    <h2 style="align-items:center">` + objectProduct.productName + `</h2>
+   
+    Rating: ` + objectProduct.productRating + `/5<br>Price:` + objectProduct.price + `<br>Quantity : ` + objectProduct.quantity + `<br><button id="` + objectProduct.inventoryId + `" name="` + objectProduct.productId + `" onclick=orderFunc(this.id,this.name)>Buy now</button><br><button name="` + objectProduct.inventoryId + `" onclick=removeFunc(this.name) style="margin-top:2px;">Remove Item</button>` + `<br><button id="` + objectProduct.inventoryId + `" name="` + objectProduct.productId + `" onclick=addOneToCart(this.name,this.id) style="margin:3px"> + </button><button id="` + objectProduct.inventoryId + `" name="` + objectProduct.productId + `" onclick=removeOneCart(this.name,this.id) style="margin:3px"> - </button>`;
 
+            document.getElementById("cartContainer").appendChild(div);
+        } else {
+            var div = document.createElement('div');
+            div.className = "Details box";
+            div.innerHTML = `<h2>Please <a href="login.html">Login</a> to see your cart</h2>`;
+            document.getElementById('lowerHalf').appendChild(div);
         }
+    }
 
-        $(document).ready(function() {
-            $("button").click(function() {
-                clearSearchResults()
-            });
+    //cart changes
+    function addOneToCart(productId, inventoryId) {
+        var token = sessionStorage.getItem('token');
+        var productId = productIdMap[inventoryId];
+        var urlProduct = "http://10.177.7.88:4000/product/get/" + productId;
+        fetchFromGetEndpoint(urlProduct, function(res) {
+            console.log(res)
+            var pname = res.productName;
+            var imgsrc = res.imageSrc[0];
+            var quantity = 1;
+            var urlInventory = "http://10.177.7.88:10000/inventory/get/" + inventoryId;
+
+            fetchFromGetEndpointSynced(urlInventory, function(res) {
+                price = res.price;
+            })
+
+
+            var product = {
+                "inventoryId": inventoryId,
+                "productId": productId,
+                "productName": pname,
+                "imageSrc": imgsrc,
+                "productRating": 4,
+                "quantity": 1,
+                "price": priceMap[inventoryId]
+            }
+            var json = {
+                "token": token,
+                "product": product
+            }
+            console.log(json)
+
+
+            var urlAddToCart = "http://10.177.7.88:7000/cart/item/add";
+            submitPostForm(urlAddToCart, json, function(res) {
+                console.log(res);
+            })
+
+            window.location = "Cart.html";
+
+        })
+    }
+    //cart changes
+    function removeOneCart(productId, inventoryId) {
+        var token = sessionStorage.getItem('token');
+        var productId = productIdMap[inventoryId];
+        var urlProduct = "http://10.177.7.88:4000/product/get/" + productId;
+        fetchFromGetEndpoint(urlProduct, function(res) {
+            var pname = res.productName;
+            var imgsrc = res.imageSrc[0];
+            var quantity = -1;
+            var urlInventory = "http://10.177.7.88:10000/inventory/get/" + inventoryId;
+
+            fetchFromGetEndpointSynced(urlInventory, function(res) {
+                price = res.price;
+            })
+
+
+            var product = {
+                "inventoryId": inventoryId,
+                "productId": productId,
+                "productName": pname,
+                "imageSrc": imgsrc,
+                "productRating": 4,
+                "quantity": -1,
+                "price": priceMap[inventoryId]
+            }
+            var json = {
+                "token": token,
+                "product": product
+            }
+            console.log(json)
+
+
+            var urlAddToCart = "http://10.177.7.88:7000/cart/item/add";
+            submitPostForm(urlAddToCart, json, function(res) {
+                console.log(res);
+            })
+
+            window.location = "Cart.html";
+
+        })
+    }
+
+    function removeFunc(inventoryId) {
+        var userId = sessionStorage.getItem('token');
+        callDeleteEndpoint("http://10.177.7.88:7000/cart/item/delete?token=" + userId + "&id=" + inventoryId, function(resCart) {
+            console.log(resCart);
+            window.location = 'Cart.html';
+            debugger
+
         });
+    }
 
-        function clearSearchResults() {
-            $(".searchResult").remove();
+
+    function orderFunc(inventoryId, productId) {
+        sessionStorage.setItem('inventoryId', inventoryId)
+        sessionStorage.setItem('productId', productId)
+        sessionStorage.setItem('quantity', quantityMap[inventoryId])
+
+        window.location = "order.html"
+    }
+
+
+
+
+
+    $('#searchForm').submit(function(e) {
+        clear();
+        var formObj = $(this);
+        var data = parseJQueryForm(formObj);
+        var url = "http://10.177.7.88:3000/search/all/" + data['query'];
+        fetchFromGetEndpoint(url, function(res) {
+            console.log(res);
+            clearProducts();
+            for (index in res) {
+                createSearchCard(res[index]);
+            }
+        })
+        e.preventDefault();
+    });
+
+    function createSearchCard(objectProduct) {
+        if (objectProduct.outOfStock) {
+            var div = document.createElement('div');
+            div.className = 'searchResult';
+            div.innerHTML = `<a href="Product.html?id=` + objectProduct.productId + `"><img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` + objectProduct.productName + `</h2> Out of Stock`;
+            document.getElementById('lowerHalf').appendChild(div);
+        } else {
+            var div = document.createElement('div');
+            div.className = 'searchResult';
+            div.innerHTML = `<a href="Product.html?id=` + objectProduct.productId + `"><img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` + objectProduct.productName + `</h2> Best Price: ` + objectProduct.bestPrice + `<br> Rating: ` + objectProduct.productRating + `/5 `;
+            document.getElementById('lowerHalf').appendChild(div);
         }
 
-        function clearProducts() {
-            $(".productDiv1").remove();
-            $(".productDiv2").remove();
-        }
+
+    }
+
+    $(document).ready(function() {
+        $("button").click(function() {
+            clearSearchResults()
+        });
+    });
+
+    function clearSearchResults() {
+        $(".searchResult").remove();
+    }
+
+    function clearProducts() {
+        $(".productDiv1").remove();
+        $(".productDiv2").remove();
+    }
 
 
 
 
 
-function signoutFunc()
-{
-		sessionStorage.setItem('token','guest@gmail.com')
+    function signoutFunc() {
+        sessionStorage.setItem('token', 'guest@gmail.com')
 
-  var div = document.createElement('div');
-    div.className = 'newClass';
-    div.innerHTML =	`<h1>Please <a href="Login.html"> Login </a> to see your Cart!</h1>`;
-    document.getElementById("cartContainer").appendChild(div);
-    
+        var div = document.createElement('div');
+        div.className = 'newClass';
+        div.innerHTML = `<h1>Please <a href="Login.html"> Login </a> to see your Cart!</h1>`;
+        document.getElementById("cartContainer").appendChild(div);
 
-}
-function clearSearchResults()
-		{
-			$(".searchResult").remove();
-		
-		}
-function createProductCard(objectProduct) {
-			var div = document.createElement('div');
-			div.className = 'searchResult';
-			div.innerHTML = `<img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
-				objectProduct.productName + `</h2>
+
+    }
+
+    function clearSearchResults() {
+        $(".searchResult").remove();
+
+    }
+
+    function createProductCard(objectProduct) {
+        var div = document.createElement('div');
+        div.className = 'searchResult';
+        div.innerHTML = `<img src="` + objectProduct.imageSrc + `" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+            objectProduct.productName + `</h2>
     	Best Price: ` + objectProduct.bestPrice + `<br>
     	Rating: ` +
-				objectProduct.rating + `/5 `
-			document.getElementById('cartContainer').appendChild(div);
-		}
-
-</script>
-
-
+            objectProduct.productRating + `/5 `
+        document.getElementById('cartContainer').appendChild(div);
+    }
+    </script>
 </body>
 <footer id="footer">
-			<!-- top footer -->
-			<div class="section">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">About Us</h3>
-								<p>Coviam Dukaan </p>
-								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>HSR Layout Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+34335435353</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>coviam@email.com</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Service</h3>
-								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="cart.html">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<!-- <li><a href="#">Track My Order</a></li> -->
-									<li><a href="#">Help</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /top footer -->
-		</footer>
-		<!-- /FOOTER -->
+    <!-- top footer -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">About Us</h3>
+                        <p>Coviam Dukaan </p>
+                        <ul class="footer-links">
+                            <li><a href="https://goo.gl/maps/LiYrU4nTqoq"><i class="fa fa-map-marker"></i>HSR Layout Road</a></li>
+                            <li><a href="tel:121"><i class="fa fa-phone"></i>+34335435353</a></li>
+                            <li><a href="mailto:sach.sekh.131997@gmail.com?subject=Dukaan.com%20Customer%20Query"><i class="fa fa-envelope-o"></i>coviam@email.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="footer">
+                        <h3 class="footer-title">Service</h3>
+                        <ul class="footer-links">
+                            <li><a href="Landing.html">My Account</a></li>
+                            <li><a href="cart.html">View Cart</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /top footer -->
+</footer>
+<!-- /FOOTER -->
+
 </html>
