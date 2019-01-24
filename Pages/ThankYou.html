@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
 	<style type="text/css">
 		.searchResult {
 			width: 23%;
@@ -53,7 +53,10 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	 crossorigin="anonymous"></script>
 	<script src="../JS/helper.js"></script>
-	<body onready="clear()" >
+
+</head>
+
+<body onready="clear()">
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
@@ -86,7 +89,12 @@
 									Back to categories
 								</a>
 							</div>
-							
+							<div>
+								<a href="OrderHistory.html">
+									<i class="fa fa-heart-o"></i>
+									<span>Your Profile</span>
+								</a>
+							</div>
 							<!-- /Wishlist -->
 
 							<!-- Cart -->
@@ -117,122 +125,9 @@
 		</div>
 		<!-- /MAIN HEADER -->
 	</header>
-</head>
-<body>
-	<div id="lowerHalf" style="padding: 10px;margin:5px;display: inline-block;">
-		
-	</div>
-	<div class="result">
-
-</div>
-
-</body>
-<script type="text/javascript">
-		function clear()
-		{
-			document.body.innerHTML=``;
-		}
-		function clearSearchResults()
-		{
-			$(".searchResult").remove();
-		}
-
-
-		$('#searchForm').submit(function (e) {
-			var formObj = $(this);
-			var data = parseJQueryForm(formObj);
-			var url = "http://10.177.7.88:3000/search/all/" + data['query'];
-			$("#lowerHalf").remove();
-			fetchFromGetEndpoint(url, function (res) {
-				for (index in res) {
-					createSearchCard(res[index]);
-				}
-			})
-			e.preventDefault();
-		});
-		
-			function createSearchCard(objectProduct) {
-                        if(objectProduct.outOfStock){
-                var div = document.createElement('div');
-            div.className = 'searchResult';
-            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName  + `</h2> Out of Stock`;
-            document.getElementById('lowerHalf').appendChild(div);
-            }
-                else{
-            var div = document.createElement('div');
-            div.className = 'searchResult';
-            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName + `</h2> Best Price: ` +objectProduct.bestPrice + `<br> Rating: ` +objectProduct.productRating + `/5 `;
-            document.getElementById('result').appendChild(div);
-        }
-
-        }
-
-		
-
-		
-		$(document).ready(function () {
-			if(sessionStorage.getItem("token")!=null && sessionStorage.getItem('token')!="guest@gmail.com"){
-				document.getElementById("login").innerHTML=sessionStorage.getItem("token");
-				document.getElementById('signup').innerHTML="LogOut";
-				$("#login").attr("href", "javascript:void(0");
-				document.getElementById("signup").href="Login.html";
-			}
-			$("button").click(function () {
-				clearSearchResults()
-			});
-		});
-		$(document).ready(function (){
-			var token=sessionStorage.getItem('token');
-			if(token!="guest@gmail.com"){
-			var urlName="http://10.177.7.88:8000/auth/find?emailId="+token;
-			fetchFromGetEndpoint(urlName,function(res){
-				var div=document.createElement('div');
-				div.className="Details box";
-				div.innerHTML=`<h3>Email ID :`+res.emailId+`<br>Name : `+res.firstName+` `+res.lastName+`<br>Registered Number : `+res.phoneNumber+`</h3>`;
-				document.getElementById('lowerHalf').appendChild(div);
-			});
-			var urlOrder="http://10.177.7.88:13000/order/customer/get?token="+token;
-
-			fetchFromGetEndpoint(urlOrder,function(res){
-				for(index in res)
-				{
-
-					createOrderCard(res[index])
-				}
-
-			});
-			function createOrderCard(objectOrder)
-			{
-				console.log(objectOrder);
-				var urlProduct="http://10.177.7.88:4000/product/get/"+objectOrder.productId;
-				fetchFromGetEndpoint(urlProduct,function(resProduct){
-					var div1=document.createElement('div')
-					div1.innerHTML=`<h4>Product Name : `+resProduct.productName+`<br></h4>`;
-
-					
-					var div=document.createElement('div');
-				div.innerHTML=`<br><h4>Delivery Address : `+objectOrder.address+`<br>Payment via :`+objectOrder.modeOfPayment+`<br>Amount to be paid at delivery : `+(objectOrder.quantity*objectOrder.price)+`</h4>`;
-				document.getElementById('lowerHalf').appendChild(div);
-				
-					document.getElementById('lowerHalf').appendChild(div1);
-				});
-				// var date=objectOrder.date;`<br> Order placed on : `+date.toString("dd mm yyyy")+
-
-				
-				
-			}
-		}
-		else
-		{
-			var div=document.createElement('div');
-				div.className="Details box";
-				div.innerHTML=`<h2>Please <a href="login.html">Login</a> to see your profile</h2>`;
-				document.getElementById('lowerHalf').appendChild(div);
-
-		}
-		});
-</script>
-</body>
+	<body>
+		<h1>Thank you for shopping with us!!</h1>
+	</body>
 	<footer id="footer">
 			<!-- top footer -->
 			<div class="section">
@@ -268,7 +163,3 @@
 			</div>
 			<!-- /top footer -->
 		</footer>
-		<!-- /FOOTER -->
-
-
-</html>

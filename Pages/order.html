@@ -1,154 +1,150 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<style type="text/css">
-		.searchResult {
-			width: 23%;
-			border: 1px solid white;
-			height: 20%;
-			color: black;
-			display: inline-block;
-			padding: 1em;
-			margin: 10px;
-			background-color: white;
-			box-sizing: border-box;
-			align-items: center;
-			border-radius: 7px;
-		}
+    <style type="text/css">
+    .searchResult {
+        width: 23%;
+        border: 1px solid white;
+        height: 20%;
+        color: black;
+        display: inline-block;
+        padding: 1em;
+        margin: 10px;
+        background-color: white;
+        box-sizing: border-box;
+        align-items: center;
+        border-radius: 7px;
+    }
 
-		.addressResult{
-			width: 23%;
-			border: 1px solid white;
-			height: 20%;
-			color: black;
-			display: inline-block;
-			padding: 1em;
-			margin: 10px;
-			background-color: white;
-			box-sizing: border-box;
-			align-items: center;
-			border-radius: 7px;
-			font-size: 20px;
+    .addressResult {
+        width: 23%;
+        border: 1px solid white;
+        height: 20%;
+        color: black;
+        display: inline-block;
+        padding: 1em;
+        margin: 10px;
+        background-color: white;
+        box-sizing: border-box;
+        align-items: center;
+        border-radius: 7px;
+        font-size: 20px;
 
-		}
+    }
 
-		.card {
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-			transition: 0.3s;
-			width: 40%;
-			border-radius: 5px;
-		}
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        width: 40%;
+        border-radius: 5px;
+    }
 
-		.card:hover {
-			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-		}
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
 
-		img {
-			border-radius: 5px 5px 0 0;
-		}
+    img {
+        border-radius: 5px 5px 0 0;
+    }
 
-		.container {
-			padding: 2px 16px;
-		}
+    .container {
+        padding: 2px 16px;
+    }
 
-		.totalClass{
-			display: inline-block;
-			font-size: 20px;
-			text-align:center;
-			font-size: 40px;
+    .totalClass {
+        display: inline-block;
+        font-size: 20px;
+        text-align: center;
+        font-size: 40px;
 
-		}
-	</style>
-
-	<title>Ecommerece Project</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<meta charset="utf-8">
-	<title>Ecommerce project</title>
-	<link rel="stylesheet" type="text/css" href="../CSS/landing.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
-	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
-	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css" />
-	<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	 crossorigin="anonymous"></script>
-	<script src="../JS/helper.js"></script>
-
+    }
+    </style>
+    <title>Ecommerece Project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Ecommerce project</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/landing.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/12.1.0/nouislider.css" />
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="../JS/helper.js"></script>
 </head>
+
 <body onload="myfunc()" onready="clear()">
-	<header>
-		<!-- TOP HEADER -->
-		<div id="top-header">
-			<div class="container">
-				<ul class="header-links pull-right">
-					<li><a href="Landing.html">
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-right">
+                    <li><a href="Landing.html">
 							<h1 style="color: black">DUKAAN.COM</h1>
 						</a></li>
-					<li><a href="Login.html" id="login" style="font-size: 20px; color:black">Login</a></li>
-					<li><a href="Signup.html" id="signup" style="font-size: 20px; color:black">Signup</a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="header">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8">
-						<div class="header-search">
-							<form id="searchForm">
-
-								<input type="text" class="input" placeholder="Search here" name="query">
-								<button class="search-btn button" id="searchButton">Search</button>
-							</form>
-						</div>
-					</div>
-					<div class="col-md-4 clearfix">
-						<div class="header-ctn">
-							<div>
-								<a href="Landing.html">
+                    <li><a href="Login.html" id="login" style="font-size: 20px; color:black">Login</a></li>
+                    <li><a href="Signup.html" id="signup" style="font-size: 20px; color:black">Signup</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="header-search">
+                            <form id="searchForm">
+                                <input type="text" class="input" placeholder="Search here" name="query">
+                                <button class="search-btn button" id="searchButton">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-4 clearfix">
+                        <div class="header-ctn">
+                            <div>
+                                <a href="Landing.html">
 									Back to categories
 								</a>
-							</div>
-							<div>
-								<a href="OrderHistory.html">
+                            </div>
+                            <div>
+                                <a href="OrderHistory.html">
 									<i class="fa fa-heart-o"></i>
 									<span>Your Profile</span>
 								</a>
-							</div>
-							<!-- /Wishlist -->
-
-							<!-- Cart -->
-							<div class="dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            </div>
+                            <!-- /Wishlist -->
+                            <!-- Cart -->
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 									<i class="fa fa-shopping-cart"></i>
 									<span><a href="cart.html">Your Cart</a></span>
-									<!-- <div class="qty">3</div> -->
-								</a>
-							</div>
-							<!-- /Cart -->
-
-							<!-- Menu Toogle -->
-							<div class="menu-toggle">
-								<a href="#">
+                                <!-- <div class="qty">3</div> -->
+                                </a>
+                            </div>
+                            <!-- /Cart -->
+                            <!-- Menu Toogle -->
+                            <div class="menu-toggle">
+                                <a href="#">
 									<i class="fa fa-bars"></i>
 									<span>Menu</span>
 								</a>
-							</div>
-							<!-- /Menu Toogle -->
-						</div>
-					</div>
-					<!-- /ACCOUNT -->
-				</div>
-				<!-- row -->
-			</div>
-			<!-- container -->
-		</div>
-		<!-- /MAIN HEADER -->
-	</header>
-	<div id="orderContents" style="text-align:center; font-size: 40px">
-		<br><span class="searchClass" style="display:inline-block;">Your total is :</h1>
+                            </div>
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <div id="orderContents" style="text-align:center; font-size: 40px">
+        <br><span class="searchClass" style="display:inline-block;">Your total is :</h1>
 	</div>
 <p style="font-size:20px">Deliver to : </p>
 	<div id="addressForm">
@@ -206,10 +202,7 @@
 				var productId=sessionStorage.getItem('productId');
 				var quantity=sessionStorage.getItem('quantity');
 				var address=document.getElementById("textAddress").value;
-				console.log(inventoryId)
-				console.log(productId)
-				console.log(quantity)
-				console.log(address)
+				
 
 				var orderDTO={}
 				orderDTO['customerId']=userId;
@@ -219,20 +212,27 @@
 				orderDTO['address']=address;
 
 				submitPostForm("http://10.177.7.88:13000/order/new",orderDTO,function(res){
-					if(res.status=="INITIALIZED")
-					callDeleteEndpoint("http://10.177.7.88:7000/cart/item/delete?token="+userId+"&id="+inventoryId,function(resCart){
+					if(res.status=="SUCCESS")
+					{
+						callDeleteEndpoint("http://10.177.7.88:7000/cart/item/delete?token="+userId+"&id="+inventoryId,function(resCart){
 						console.log(resCart);
 						sessionStorage.removeItem('inventoryId');
 						sessionStorage.removeItem('productId');
 						sessionStorage.removeItem('quantity');
-						window.location='Cart.html';
+						window.location='ThankYou.html';
 						debugger
-
 					});
+					}
+					else if(res.status=="FAILURE")
+					{
+						alert(res.message);
+					}
+
 
 				});
-				return false;
 			}
+				
+			
 			function clear()
 		{
 			document.body.innerHTML=``;
