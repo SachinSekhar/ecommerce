@@ -32,7 +32,7 @@
                         <input type="Password" name="password" required class="form-control" id="inputPassword" placeholder="Password">
                     </div>
                     <div class="forgot">
-                        <a href="Landing.html" onclick="guestSet()">Continue as Guest?</a>
+                        <a href="Takeoff.html" onclick="guestSet()">Continue as Guest?</a>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary">Login</button>
@@ -52,7 +52,7 @@
                 console.log(data);
                 if (res.status == ("SUCCESS")) {
                     sessionStorage.setItem('token', data["emailId"]);
-                    window.location.replace('Landing.html');
+                    window.location.replace('Takeoff.html');
                 } else
                     alert("WRONG LOGIN CREDENTIALS");
 

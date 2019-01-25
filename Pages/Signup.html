@@ -25,20 +25,20 @@
      </div>
       <form action="#" method="POST" id="signupForm" enctype="application/json">
           <div class="form-group">
-              <input type="E-Mail" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" name="emailId" class="form-control" placeholder="Email Address">
+              <input type="E-Mail" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" name="emailId" class="form-control" placeholder="Email Address" required>
           </div>
           <div class="form-group">
-              <input type="text" name="firstName" required placeholder="FirstName" class="form-control">
+              <input type="text" name="firstName" required placeholder="FirstName" class="form-control" required>
           </div>
           <div class="form-group">
-              <input type="text" name="lastName" placeholder="LastName" class="form-control">
+              <input type="text" name="lastName" placeholder="LastName" class="form-control" required>
           </div>
           <div class="form-group">
-              <input type="text" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" name="phoneNumber" placeholder="PhoneNumber" class="form-control">
+              <input type="text" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" name="phoneNumber" placeholder="PhoneNumber" class="form-control" required>
           </div>
 
           <div class="form-group">
-              <input type="Password" name="password" required class="form-control" id="inputPassword" placeholder="Password">
+              <input type="Password" name="password" required class="form-control" id="inputPassword" placeholder="Password" required>
           </div>
           <div>
           <button type="submit" class="btn btn-primary">Sign Up</button>

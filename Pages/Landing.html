@@ -62,7 +62,7 @@
 		<div id="top-header">
 			<div class="container">
 				<ul class="header-links pull-right">
-					<li><a href="Landing.html">
+					<li><a href="Takeoff.html">
 							<h1 style="color: black">DUKAAN.COM</h1>
 						</a></li>
 					<li><a href="Login.html" id="login" style="font-size: 20px; color:black">Login</a></li>
@@ -84,11 +84,6 @@
 					</div>
 					<div class="col-md-4 clearfix">
 						<div class="header-ctn">
-							<div>
-								<a href="Landing.html">
-									Back to categories
-								</a>
-							</div>
 							<div>
 								<a href="OrderHistory.html">
 									<i class="fa fa-heart-o"></i>
@@ -196,7 +191,7 @@
 							<div class="footer">
 								<h3 class="footer-title">Service</h3>
 								<ul class="footer-links">
-									<li><a href="Landing.html">My Account</a></li>
+									<li><a href="OrderHistory.html">My Account</a></li>
 									<li><a href="cart.html">View Cart</a></li>
 									
 								</ul>
@@ -289,6 +284,16 @@
 			document.getElementById('lowerHalf').appendChild(div);
 			}
 			else{
+				
+				if(objectProduct.bestPrice==undefined){
+					var div = document.createElement('div');
+			div.className = 'searchResult';
+			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc[0]+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
+				objectProduct.productName ;
+			document.getElementById('lowerHalf').appendChild(div);
+
+				}
+				else{
 				var div = document.createElement('div');
 			div.className = 'searchResult';
 			div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc[0]+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +
@@ -298,6 +303,7 @@
 				objectProduct.productRating + `/5 `
 			document.getElementById('lowerHalf').appendChild(div);
 			}
+		}
 
 			
 		}

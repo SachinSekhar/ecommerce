@@ -83,7 +83,7 @@
         <div id="top-header">
             <div class="container">
                 <ul class="header-links pull-right">
-                    <li><a href="../Pages/Landing.html">
+                    <li><a href="../Pages/Takeoff.html">
 							<h1 style="color: black">DUKAAN.COM</h1>
 						</a></li>
                     <li><a href="Login.html" id="login" style="font-size: 20px;font-weight:bold">Login</a></li>
@@ -107,7 +107,7 @@
                             <div>
                                 <a href="Landing.html">
 									<i class="fa fa-heart-o"></i>
-									<span> Back to Categories </span>
+									<span> Go to Categories </span>
 								</a>
                             </div>
                             <div>
@@ -187,7 +187,7 @@
             document.getElementById('lowerHalf').appendChild(spanProduct);
             var spanProduct3 = document.createElement('span');
             spanProduct3.className = 'productDiv2';
-            spanProduct3.innerHTML = `<h2 style="align-items:center">` + objectProduct.productName + `</h2>Best Price: ` + objectProduct.bestPrice + `<br>Rating: ` + objectProduct.rating + `/5 <br>` + objectProduct.description + `<br>`;
+            spanProduct3.innerHTML = `<h2 style="align-items:center">` + objectProduct.productName + `</h2>Best Price: ` + objectProduct.bestPrice + `<br>Rating: ` + objectProduct.productRating + `/5 <br>` + objectProduct.description + `<br>`;
             document.getElementById('lowerHalf').appendChild(spanProduct3);
 
 
@@ -203,15 +203,21 @@
         function createMerchantList(objectMerchant) {
 
             var spanProduct2 = document.createElement('span');
-         
+            var id=sessionStorage.getItem('token');
+
+            if(id=="guest@gmail.com")
+            {
+                spanProduct2.className = 'productDiv1';
+            spanProduct2.innerHTML = `<h3> Merchant selling this Product :<br>` + objectMerchant.merchantName + `</h3> Price of ` + objectMerchant.price + `<br><button name="` + objectMerchant.merchantId + `" id="` + objectMerchant.inventoryId;
+            document.getElementById('lowerHalf').appendChild(spanProduct2);
+
+            }
+            else
+            {
             spanProduct2.className = 'productDiv1';
             spanProduct2.innerHTML = `<h3> Merchant selling this Product :<br>` + objectMerchant.merchantName + `</h3> Price of ` + objectMerchant.price + `<br><button name="` + objectMerchant.merchantId + `" id="` + objectMerchant.inventoryId + `"  onClick="addToCart(this.name,this.id)">Add to Cart +</button>`;
             document.getElementById('lowerHalf').appendChild(spanProduct2);
-
-            // var spanProduct3=document.createElement('span');
-            // spanProduct3.className='productDiv1';
-            // spanProduct3.innerHTML = `<h3> Merchant selling this Product :<br>`+objectMerchant[1].merchantName+`</h3> Price of `+objectMerchant[1].price+`<br>`;
-            // document.getElementById('lowerHalf').appendChild(spanProduct3);
+        }
         }
 
         function addToCart(merchantId, inventoryId) {
@@ -248,7 +254,7 @@
 
                 var urlAddToCart = "http://10.177.7.88:7000/cart/item/add";
                 submitPostForm(urlAddToCart, json, function(res) {
-                    // console.log(res);
+                        alert("Added to cart");
                 })
 
                 // window.location="Landing.html";
@@ -283,7 +289,7 @@
                 else{
             var div = document.createElement('div');
             div.className = 'searchResult';
-            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName + `</h2> Best Price: ` +objectProduct.bestPrice + `<br> Rating: ` +objectProduct.productRating + `/5 `;
+            div.innerHTML = `<a href="Product.html?id=`+objectProduct.productId+`"><img src="` + objectProduct.imageSrc+`" alt="nahi aya" width=100%> <h2 style="align-items:center">` +objectProduct.productName ;
             document.getElementById('lowerHalf').appendChild(div);
         }
 
@@ -305,6 +311,6 @@
         }
         </script>
     </body>
-    
+
 
     </html>

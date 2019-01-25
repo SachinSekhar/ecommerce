@@ -77,13 +77,13 @@
     <script src="../JS/helper.js"></script>
 </head>
 
-<body onload="myfunc()" onready="clear()">
+
     <header>
         <!-- TOP HEADER -->
         <div id="top-header">
             <div class="container">
                 <ul class="header-links pull-right">
-                    <li><a href="Landing.html">
+                    <li><a href="Takeoff.html">
 							<h1 style="color: black">DUKAAN.COM</h1>
 						</a></li>
                     <li><a href="Login.html" id="login" style="font-size: 20px; color:black">Login</a></li>
@@ -106,7 +106,7 @@
                         <div class="header-ctn">
                             <div>
                                 <a href="Landing.html">
-									Back to categories
+									Go to categories
 								</a>
                             </div>
                             <div>
@@ -143,6 +143,7 @@
         </div>
         <!-- /MAIN HEADER -->
     </header>
+    <body onready="clear()" onload="myfunc();">
     <div id="orderContents" style="text-align:center; font-size: 40px">
         <br><span class="searchClass" style="display:inline-block;">Your total is :</h1>
 	</div>
@@ -179,7 +180,7 @@
 							<div class="footer">
 								<h3 class="footer-title">Service</h3>
 								<ul class="footer-links">
-									<li><a href="Landing.html">My Account</a></li>
+									<li><a href="OrderHistory.html">My Account</a></li>
 									<li><a href="cart.html">View Cart</a></li>
 									
 								</ul>
@@ -195,19 +196,50 @@
 		<!-- /FOOTER -->
 
 		<script>
+            //document.getElementById('').onload =
+            function myfunc(){
+                var totalAmount = document.createElement('span');
+                totalAmount.className='totalClass';
+                var tot=sessionStorage.getItem('total');
+                console.log(tot);
+                totalAmount.innerHTML=tot;
+                document.getElementById('orderContents').appendChild(totalAmount);
+                loadAddress();
+                var div = document.createElement('div');
+                div.className = 'addressResult';
+                div.innerHTML =`<input type="radio" name="address" value="other"/> New Address <input type="text" id="myText" name="other_reason" />​​​​​​​​​​​​​​​​​​​​​​​​<br>`;
+                document.getElementById('addressForm').appendChild(div);
+
+            }
+
+            // Function 1
+
+
 
 			function orderfunc(){
+
+
 				var userId=sessionStorage.getItem('token');
 				var inventoryId=sessionStorage.getItem('inventoryId');
 				var productId=sessionStorage.getItem('productId');
 				var quantity=sessionStorage.getItem('quantity');
-				var address=document.getElementById("textAddress").value;
-				
+				var address=document.querySelector('input[name="address"]:checked').value;
+
+				if(address=="other"){
+                    address=document.getElementById("myText").value;
+                    var obj={
+                        "token" : userId,
+                        "address" : address 
+                    }
+                    var urlAddress1="http://10.177.7.88:7000/address/add";
+                    submitPostForm(urlAddress1,obj,function(res){
+                        console.log(res);
+                    });
+                }
 
 				var orderDTO={}
 				orderDTO['customerId']=userId;
 				orderDTO['inventoryId']=inventoryId;
-				orderDTO['productId']=productId;
 				orderDTO['quantity']=parseInt(quantity);
 				orderDTO['address']=address;
 
@@ -220,7 +252,7 @@
 						sessionStorage.removeItem('productId');
 						sessionStorage.removeItem('quantity');
 						window.location='ThankYou.html';
-						debugger
+						
 					});
 					}
 					else if(res.status=="FAILURE")
@@ -231,29 +263,30 @@
 
 				});
 			}
+
+            //Function 2
 				
+			function clear(){
+                document.body.innerHTML=``;
+            }
+            
 			
-			function clear()
-		{
-			document.body.innerHTML=``;
-		}
-			function myfunc(){
-				var totalAmount = document.createElement('span');
-				totalAmount.className='totalClass';
-				var tot=sessionStorage.getItem('total');
-				console.log(tot);
-				totalAmount.innerHTML=tot;
-				document.getElementById('orderContents').appendChild(totalAmount);
-				loadAddress();
-
-			}
-
 			function loadAddress()
 			{
-				var div=document.createElement('div');
-				div.className='addressResult';
-				div.innerHTML=`<textarea rows="2" cols="30" id="textAddress" placeholder="Enter your address here" rows="5" cols="30"></textarea>`;
-				document.getElementById('addressForm').appendChild(div);
+				var token=sessionStorage.getItem('token');
+                var urlAddress="http://10.177.7.88:7000/address/get?token="+token;
+                fetchFromGetEndpoint(urlAddress,function(res){
+                    console.log(res);
+                    for(index in res['addressList'])
+                    {
+                        var str=res['addressList'][index];
+                        console.log(str);
+                        var div = document.createElement('div');
+                        div.className = 'addressResult';
+                        div.innerHTML =`<input type="radio" name="address" value="`+str+`"/>`+str+`<br>`;
+                        document.getElementById('addressForm').appendChild(div);
+                    }
+                });
 			}
 			
 
