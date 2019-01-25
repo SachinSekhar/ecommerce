@@ -167,7 +167,29 @@
 
         }
 
-		
+		function makeRatingForm(orderId)
+		{
+			return `<form method='GET' > 
+					<input type="hidden" name="orderId" value="`+orderId+`" />
+					<Label>Rate this order :&nbsp</Label><input type="Number" min="0.1" max="5.0" name="rating" step="0.1" id="rateValue"/>
+					<button name="`+orderId+`" onclick="rateFunc(this.name)">Rate</button>
+					</form>
+			` 
+		}
+
+		function rateFunc(orderId)
+		{
+			var rating=document.getElementById('rateValue').value;
+			var urlRate="http://10.177.7.88:13000/order/rating/rate?orderId="+orderId+"&rating="+rating;
+			debugger
+			fetchFromGetEndpoint(urlRate,function(res){
+				window.location='OrderHistory.html';
+
+			});
+		}
+
+
+		action='http://10.177.7.88:13000/order/rating/rate'
 
 		
 		$(document).ready(function () {
@@ -207,11 +229,24 @@
 				var urlProduct="http://10.177.7.88:4000/product/get/"+objectOrder.productId;
 				fetchFromGetEndpoint(urlProduct,function(resProduct){
 					var div1=document.createElement('div')
-					div1.innerHTML=`<h4>Product Name : `+resProduct.productName+`<br></h4>`;
+					div1.innerHTML=`<h4>Product Name : `+resProduct.productName+`<br>==========================================================</h4>`;
+					var date = new Date(objectOrder.date);
 
-					zz
+					date.toString("DD MM YYYY"); // "Dec 20"
+
+					
 					var div=document.createElement('div');
-				div.innerHTML=`<br><h4>Delivery Address : `+objectOrder.address+`<br>Payment via :`+objectOrder.modeOfPayment+`<br>Amount to be paid at delivery : `+(objectOrder.quantity*objectOrder.price)+`</h4>`;
+				var tempHTML=`<br><h4>Delivery Address : `+objectOrder.address+`<br>Payment via :`+objectOrder.modeOfPayment+`<br>Amount to be paid at delivery : `+(objectOrder.quantity*objectOrder.price)+`<br>Order on :&nbsp`+date+`</h4>`;
+				if(objectOrder.orderRating<=0)
+				{
+					tempHTML+=makeRatingForm(objectOrder.orderId);
+				}
+
+				else
+				{
+					tempHTML+=`<h4><br>Product Rating :&nbsp`+objectOrder.orderRating+`</h4>`;
+				}
+				div.innerHTML=tempHTML;
 				document.getElementById('lowerHalf').appendChild(div);
 				
 					document.getElementById('lowerHalf').appendChild(div1);

@@ -145,7 +145,7 @@
     </header>
     <body onready="clear()" onload="myfunc();">
     <div id="orderContents" style="text-align:center; font-size: 40px">
-        <br><span class="searchClass" style="display:inline-block;">Your total is :</h1>
+        <br><span class="searchClass" style="display:inline-block;"></h1>
 	</div>
 <p style="font-size:20px">Deliver to : </p>
 	<div id="addressForm">
@@ -198,12 +198,12 @@
 		<script>
             //document.getElementById('').onload =
             function myfunc(){
-                var totalAmount = document.createElement('span');
-                totalAmount.className='totalClass';
-                var tot=sessionStorage.getItem('total');
-                console.log(tot);
-                totalAmount.innerHTML=tot;
-                document.getElementById('orderContents').appendChild(totalAmount);
+                // var totalAmount = document.createElement('span');
+                // totalAmount.className='totalClass';
+                // var tot=sessionStorage.getItem('total');
+                // console.log(tot);
+                // totalAmount.innerHTML=tot;
+                // document.getElementById('orderContents').appendChild(totalAmount);
                 loadAddress();
                 var div = document.createElement('div');
                 div.className = 'addressResult';

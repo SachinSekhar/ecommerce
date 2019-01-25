@@ -229,6 +229,12 @@
                 var pname = res.productName;
                 var imgsrc = res.imageSrc[0];
                 var quantity = prompt("Please enter quantity");
+                if(quantity<=0)
+                {
+                    alert("Enter a quantity more than 0");
+                }
+                else
+                {
                 var urlInventory= "http://10.177.7.88:10000/inventory/get/" + inventoryId;
                 
                 fetchFromGetEndpointSynced(urlInventory, function(res) {
@@ -255,7 +261,8 @@
                 var urlAddToCart = "http://10.177.7.88:7000/cart/item/add";
                 submitPostForm(urlAddToCart, json, function(res) {
                         alert("Added to cart");
-                })
+                });
+            }
 
                 // window.location="Landing.html";
 
